@@ -3,11 +3,10 @@
 #' @param data A data frame to be converted into a gt table.
 #' @param title Optional. A title for the table. Default is NA.
 #' @param subtitle Optional. A subtitle for the table. Default is NA.
-#' @param n_column Optional. The name of a column in the data frame. Default is "n".
 #' @return A gt table based on the input data frame with specified modifications.
 #' @examples
 #' \dontrun{
-#' ojo_gt(data = mtcars, title = "Motor Trend Car Road Tests", n_column = "mpg")
+#' ojo_gt(data = mtcars, title = "Motor Trend Car Road Tests", subtitle = "From mtcars")
 #' }
 #' @export
 ojo_gt <- function(data, title = NA, subtitle = NA) {
