@@ -13,7 +13,7 @@
 \alias{palette_ojo_green}
 \alias{palette_ojo_spacegray}
 \alias{palette_ojo_red}
-\title{Urban Institute palettes}
+\title{OJO Main Palette}
 \format{
 An object of class \code{character} of length 8.
 
@@ -36,10 +36,6 @@ An object of class \code{character} of length 8.
 An object of class \code{character} of length 8.
 
 An object of class \code{character} of length 8.
-}
-\source{
-Open Justice Oklahoma Data Visualization Style Guide
-\url{http://openjusticeok.github.io/styleguide/}
 }
 \usage{
 palette_ojo_main
@@ -65,8 +61,50 @@ palette_ojo_spacegray
 palette_ojo_red
 }
 \description{
-Vectors with hex-color codes that correspond to the color palettes outlined in the Open Justice Oklahoma Data Visualization Style Guide.
-\url{http://openjusticeok.github.io/styleguide/}
+OJO Main Palette
+
+OJO Diverging Palette
+
+OJO Quintile Palette
+
+OJO Politics Palette
+
+OJO Cyan Palette
+
+OJO Gray Palette
+
+OJO Yellow Palette
+
+OJO Magenta Palette
+
+OJO Green Palette
+
+OJO Space Gray Palette
+
+OJO Red Palette
+}
+\details{
+A vector with hex-color codes for the main OJO palette.
+
+A vector with hex-color codes for the OJO diverging palette.
+
+A vector with hex-color codes for the OJO quintile palette.
+
+A vector with hex-color codes for the OJO politics palette.
+
+A vector with hex-color codes for the OJO cyan palette.
+
+A vector with hex-color codes for the OJO gray palette.
+
+A vector with hex-color codes for the OJO yellow palette.
+
+A vector with hex-color codes for the OJO magenta palette.
+
+A vector with hex-color codes for the OJO green palette.
+
+A vector with hex-color codes for the OJO space gray palette.
+
+A vector with hex-color codes for the OJO red palette.
 }
 \concept{ojo palettes}
 \keyword{datasets}

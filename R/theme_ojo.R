@@ -11,8 +11,8 @@
 #' @export
 
 theme_ojo <- function(base_size = 8.5, base_family = "Roboto Mono",
-                             base_line_size = 0.5,
-                             base_rect_size = 0.5) {
+                      base_line_size = 0.5,
+                      base_rect_size = 0.5) {
 
   half_line <- base_size / 2L
 

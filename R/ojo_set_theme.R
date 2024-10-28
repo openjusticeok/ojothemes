@@ -1,7 +1,7 @@
-#' The Open Justice Oklahoma [ggplot2] theme
+#' The Oklahoma Policy Institute [ggplot2] theme
 #'
 #' \code{ojo_set_theme} provides a [ggplot2] theme formatted according to the
-#' Open Justice Oklahoma style guide, with sensible defaults.
+#' Oklahoma Policy Institute style guide, with sensible defaults.
 #'
 #' @param style The default theme style for the R session. "print" or "map".
 #' @param base_size The base font size for the theme. All fonts are relative to
@@ -13,33 +13,31 @@
 #' relative to this value.
 #' @param scale For `theme_ojo_map()`. Should the legend theme be continuous or discrete?
 #'
-#' @import extrafont
-#' @import ggrepel
 #' @md
 #' @export
-ojo_set_theme <- function(style = "print",
-                              base_size = 8.5,
-                              base_family = "Lato",
-                              base_line_size = 0.5,
-                              base_rect_size = 0.5,
-                              scale = "continuous") {
+okpi_set_theme <- function(style = "print",
+                           base_size = 14,
+                           base_family = "Roboto Condensed",
+                           base_line_size = 0.5,
+                           base_rect_size = 0.5,
+                           scale = "continuous") {
 
   # set default theme to theme_ojo_*() --------------------------------------
 
   if (style == "print") {
 
     ggplot2::theme_set(theme_ojo_print(base_size = base_size,
-                                        base_family = base_family,
-                                        base_line_size = base_line_size,
-                                        base_rect_size = base_rect_size))
+                                       base_family = base_family,
+                                       base_line_size = base_line_size,
+                                       base_rect_size = base_rect_size))
 
   } else if (style == "map") {
 
     ggplot2::theme_set(theme_ojo_map(base_size = base_size,
-                                      base_family = base_family,
-                                      base_line_size = base_line_size,
-                                      base_rect_size = base_rect_size,
-                                      scale = scale))
+                                     base_family = base_family,
+                                     base_line_size = base_line_size,
+                                     base_rect_size = base_rect_size,
+                                     scale = scale))
 
   } else {
 
@@ -66,21 +64,21 @@ ojo_set_theme <- function(style = "print",
 
   # set default colors for monochromatic geoms ------------------------------
 
-  ggplot2::update_geom_defaults("bar", list(fill = "#1696d2"))
-  ggplot2::update_geom_defaults("col", list(fill = "#1696d2"))
-  ggplot2::update_geom_defaults("point", list(colour = "#1696d2"))
-  ggplot2::update_geom_defaults("line", list(colour = "#1696d2"))
-  ggplot2::update_geom_defaults("step", list(colour = "#1696d2"))
-  ggplot2::update_geom_defaults("path", list(colour = "#1696d2"))
-  ggplot2::update_geom_defaults("boxplot", list(fill = "#1696d2"))
-  ggplot2::update_geom_defaults("density", list(fill = "#1696d2"))
-  ggplot2::update_geom_defaults("violin", list(fill = "#1696d2"))
+  ggplot2::update_geom_defaults("bar", list(fill = ojothemes::okpi_blue))
+  ggplot2::update_geom_defaults("col", list(fill = ojothemes::okpi_blue))
+  ggplot2::update_geom_defaults("point", list(colour = ojothemes::okpi_blue))
+  ggplot2::update_geom_defaults("line", list(colour = ojothemes::okpi_blue))
+  ggplot2::update_geom_defaults("step", list(colour = ojothemes::okpi_blue))
+  ggplot2::update_geom_defaults("path", list(colour = ojothemes::okpi_blue))
+  ggplot2::update_geom_defaults("boxplot", list(fill = ojothemes::okpi_blue))
+  ggplot2::update_geom_defaults("density", list(fill = ojothemes::okpi_blue))
+  ggplot2::update_geom_defaults("violin", list(fill = ojothemes::okpi_blue))
 
   # set default colors for monochromatic stats ------------------------------
 
-  ggplot2::update_stat_defaults("count", list(fill = "#1696d2"))
-  ggplot2::update_stat_defaults("boxplot", list(fill = "#1696d2"))
-  ggplot2::update_stat_defaults("density", list(fill = "#1696d2"))
-  ggplot2::update_stat_defaults("ydensity", list(fill = "#1696d2"))
+  ggplot2::update_stat_defaults("count", list(fill = ojothemes::okpi_blue))
+  ggplot2::update_stat_defaults("boxplot", list(fill = ojothemes::okpi_blue))
+  ggplot2::update_stat_defaults("density", list(fill = ojothemes::okpi_blue))
+  ggplot2::update_stat_defaults("ydensity", list(fill = ojothemes::okpi_blue))
 
 }

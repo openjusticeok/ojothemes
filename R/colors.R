@@ -1,12 +1,85 @@
-#' Urban Institute palettes
+#' OKPI Extended Palette
 #'
-#' Vectors with hex-color codes that correspond to the color palettes outlined in the Open Justice Oklahoma Data Visualization Style Guide.
+#' A vector with hex-color codes that correspond to the extended color palette outlined in the Open Justice Oklahoma Data Visualization Style Guide.
 #' \url{http://openjusticeok.github.io/styleguide/}
 #'
-#' @source Open Justice Oklahoma Data Visualization Style Guide
-#'  \url{http://openjusticeok.github.io/styleguide/}
+#' @title OKPI main palette
+#' @name palette_okpi_main
+#' @family okpi palettes
+#' @rdname okpi_palettes
+#' @export
+palette_okpi_main <- c(
+  "#2f507f", # Dark Blue
+  "#9fB8db", # Light Blue
+  "#972421", # Red
+  "#febd60", # Yellow
+  "#7f7f7f", # Grey
+  "#89a44c", # Green
+  "#715990", # Purple
+  "#4198af", # Turquoise
+  "#dd8727", # Orange
+  "#632623", # Maroon
+  "#fec010", # Bright Yellow
+  "#d09392", # Pink
+  "#b9cd95", # Light Green
+  "#a99bbc" # Light Purple
+)
+
+# Blue Palette
+#' OKPI Blue Palette
 #'
+#' A palette of blue shades for OKPI.
 #'
+#' @title OKPI Blue Palette
+#' @name okpi_blue_palette
+#' @family okpi palettes
+#' @rdname okpi_palettes
+#' @export
+okpi_blue <- "#2a5180"
+#' @export
+okpi_blue_light <- colorspace::lighten(okpi_blue, amount = 0.95)
+#' @export
+okpi_blue_palette <- colorRampPalette(c(okpi_blue_light, okpi_blue))
+
+# Red Palette
+#' OKPI Red Palette
+#'
+#' A palette of red shades for OKPI.
+#'
+#' @title OKPI Red Palette
+#' @name okpi_red_palette
+#' @family okpi palettes
+#' @rdname okpi_palettes
+#' @export
+okpi_red <- "#982422"
+#' @export
+okpi_red_light <- colorspace::lighten(okpi_red, amount = 0.95)
+#' @export
+okpi_red_palette <- colorRampPalette(c(okpi_red_light, okpi_red))
+
+# Yellow Palette
+#' OKPI Yellow Palette
+#'
+#' A palette of yellow shades for OKPI.
+#'
+#' @title OKPI Yellow Palette
+#' @name okpi_yellow_palette
+#' @family okpi palettes
+#' @rdname okpi_palettes
+#' @export
+okpi_yellow <- "#fdbc5f"
+#' @export
+okpi_yellow_light <- colorspace::lighten(okpi_yellow, amount = 0.99)
+#' @export
+okpi_yellow_palette <- colorRampPalette(c(okpi_yellow_light, okpi_yellow))
+
+# OJO Palettes
+#' OJO Main Palette
+#'
+#' A vector with hex-color codes for the main OJO palette.
+#'
+#' @title OJO Main Palette
+#' @name palette_ojo_main
 #' @family ojo palettes
 #' @rdname ojo_palettes
 #' @export
@@ -18,8 +91,16 @@ palette_ojo_main <- c(
   magenta = "#ec008b",
   green = "#55b748",
   `space gray` = "#5c5859",
-  red = "#db2b27")
+  red = "#db2b27"
+)
 
+#' OJO Diverging Palette
+#'
+#' A vector with hex-color codes for the OJO diverging palette.
+#'
+#' @title OJO Diverging Palette
+#' @name palette_ojo_diverging
+#' @family ojo palettes
 #' @rdname ojo_palettes
 #' @export
 palette_ojo_diverging <- c(
@@ -30,8 +111,16 @@ palette_ojo_diverging <- c(
   "#cfe8f3",
   "#73bfe2",
   "#1696d2",
-  "#0a4c6a")
+  "#0a4c6a"
+)
 
+#' OJO Quintile Palette
+#'
+#' A vector with hex-color codes for the OJO quintile palette.
+#'
+#' @title OJO Quintile Palette
+#' @name palette_ojo_quintile
+#' @family ojo palettes
 #' @rdname ojo_palettes
 #' @export
 palette_ojo_quintile <- c(
@@ -39,14 +128,30 @@ palette_ojo_quintile <- c(
   "#73bfe2",
   "#1696d2",
   "#0a4c6a",
-  "#000000")
+  "#000000"
+)
 
+#' OJO Politics Palette
+#'
+#' A vector with hex-color codes for the OJO politics palette.
+#'
+#' @title OJO Politics Palette
+#' @name palette_ojo_politics
+#' @family ojo palettes
 #' @rdname ojo_palettes
 #' @export
 palette_ojo_politics <- c(
   "#1696d2",
-  "#db2b27")
+  "#db2b27"
+)
 
+#' OJO Cyan Palette
+#'
+#' A vector with hex-color codes for the OJO cyan palette.
+#'
+#' @title OJO Cyan Palette
+#' @name palette_ojo_cyan
+#' @family ojo palettes
 #' @rdname ojo_palettes
 #' @export
 palette_ojo_cyan <- c(
@@ -57,8 +162,16 @@ palette_ojo_cyan <- c(
   "#1696d2",
   "#12719e",
   "#0a4c6a",
-  "#062635")
+  "#062635"
+)
 
+#' OJO Gray Palette
+#'
+#' A vector with hex-color codes for the OJO gray palette.
+#'
+#' @title OJO Gray Palette
+#' @name palette_ojo_gray
+#' @family ojo palettes
 #' @rdname ojo_palettes
 #' @export
 palette_ojo_gray <- c(
@@ -69,8 +182,16 @@ palette_ojo_gray <- c(
   "#d2d2d2",
   "#9d9d9d",
   "#696969",
-  "#353535")
+  "#353535"
+)
 
+#' OJO Yellow Palette
+#'
+#' A vector with hex-color codes for the OJO yellow palette.
+#'
+#' @title OJO Yellow Palette
+#' @name palette_ojo_yellow
+#' @family ojo palettes
 #' @rdname ojo_palettes
 #' @export
 palette_ojo_yellow <- c(
@@ -81,8 +202,16 @@ palette_ojo_yellow <- c(
   "#fabe15",
   "#bb8e2d",
   "#7f6127",
-  "#3e3215")
+  "#3e3215"
+)
 
+#' OJO Magenta Palette
+#'
+#' A vector with hex-color codes for the OJO magenta palette.
+#'
+#' @title OJO Magenta Palette
+#' @name palette_ojo_magenta
+#' @family ojo palettes
 #' @rdname ojo_palettes
 #' @export
 palette_ojo_magenta <- c(
@@ -93,8 +222,16 @@ palette_ojo_magenta <- c(
   "#e90989",
   "#af1f6b",
   "#761548",
-  "#351123")
+  "#351123"
+)
 
+#' OJO Green Palette
+#'
+#' A vector with hex-color codes for the OJO green palette.
+#'
+#' @title OJO Green Palette
+#' @name palette_ojo_green
+#' @family ojo palettes
 #' @rdname ojo_palettes
 #' @export
 palette_ojo_green <- c(
@@ -105,8 +242,16 @@ palette_ojo_green <- c(
   "#55b748",
   "#408941",
   "#2c5c2d",
-  "#1a2e19")
+  "#1a2e19"
+)
 
+#' OJO Space Gray Palette
+#'
+#' A vector with hex-color codes for the OJO space gray palette.
+#'
+#' @title OJO Space Gray Palette
+#' @name palette_ojo_spacegray
+#' @family ojo palettes
 #' @rdname ojo_palettes
 #' @export
 palette_ojo_spacegray <- c(
@@ -117,8 +262,16 @@ palette_ojo_spacegray <- c(
   "#332d2f",
   "#262223",
   "#1a1717",
-  "#0e0c0d")
+  "#0e0c0d"
+)
 
+#' OJO Red Palette
+#'
+#' A vector with hex-color codes for the OJO red palette.
+#'
+#' @title OJO Red Palette
+#' @name palette_ojo_red
+#' @family ojo palettes
 #' @rdname ojo_palettes
 #' @export
 palette_ojo_red <- c(
@@ -129,4 +282,5 @@ palette_ojo_red <- c(
   "#db2b27",
   "#a4201d",
   "#6e1614",
-  "#370b0a")
+  "#370b0a"
+)

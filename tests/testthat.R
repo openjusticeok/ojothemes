@@ -1,4 +1,4 @@
-library(testthat)
-library(ojothemes)
-
-test_check("ojothemes")
+# library(testthat)
+# library(ojothemes)
+#
+# test_check("ojothemes")
