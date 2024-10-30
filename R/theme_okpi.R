@@ -73,19 +73,8 @@ theme_okpi <- function(base_family = "Roboto Condensed",
     )
 
   # Set scales to use okpi palettes
-  scale_color_okpi <- scale_color_manual(values = palette_okpi_main)
-  scale_fill_okpi <- scale_fill_manual(values = palette_okpi_main)
-
-  # Update geom defaults to use okpi blue
-  update_geom_defaults("point", list(colour = ojothemes::okpi_blue,
-                                     fill = ojothemes::okpi_blue))
-  update_geom_defaults("line", list(colour = ojothemes::okpi_blue))
-  update_geom_defaults("bar", list(fill = ojothemes::okpi_blue))
-  update_geom_defaults("col", list(fill = ojothemes::okpi_blue))
-  update_geom_defaults("area", list(fill = ojothemes::okpi_blue))
-  update_geom_defaults("text", list(colour = "#333333"))
-  update_geom_defaults("label", list(fill = "white",
-                                     colour = "#333333"))
+  scale_color_okpi <- ojothemes::scale_color_okpi()
+  scale_fill_okpi <- ojothemes::scale_fill_okpi()
 
   # Wrap everything together in a theme
   list(

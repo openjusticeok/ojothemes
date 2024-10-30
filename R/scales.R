@@ -1,0 +1,59 @@
+#' OKPI Color Scale
+#'
+#' This function returns a ggplot2 color scale using the OKPI main palette.
+#'
+#' @return A ggplot2 scale object.
+#' @examples
+#' library(ggplot2)
+#' ggplot(mtcars, aes(x = wt, y = mpg, color = factor(gear))) +
+#'   geom_point(size = 3) +
+#'   scale_color_okpi()
+#' @export
+scale_color_okpi <- function() {
+  scale_color_manual(values = palette_okpi_main, na.value = "green")
+}
+
+#' OKPI Fill Scale
+#'
+#' This function returns a ggplot2 fill scale using the OKPI main palette.
+#'
+#' @return A ggplot2 scale object.
+#' @examples
+#' library(ggplot2)
+#' ggplot(mtcars, aes(x = factor(gear), fill = factor(gear))) +
+#'   geom_bar() +
+#'   scale_fill_okpi()
+#' @export
+scale_fill_okpi <- function() {
+  scale_fill_manual(values = palette_okpi_main)
+}
+
+#' OJO Color Scale
+#'
+#' This function returns a ggplot2 color scale using the OJO main palette.
+#'
+#' @return A ggplot2 scale object.
+#' @examples
+#' library(ggplot2)
+#' ggplot(mtcars, aes(x = wt, y = mpg, color = factor(gear))) +
+#'   geom_point(size = 3) +
+#'   scale_color_ojo()
+#' @export
+scale_color_ojo <- function() {
+  scale_color_manual(values = palette_ojo_main)
+}
+
+#' OJO Fill Scale
+#'
+#' This function returns a ggplot2 fill scale using the OJO main palette.
+#'
+#' @return A ggplot2 scale object.
+#' @examples
+#' library(ggplot2)
+#' ggplot(mtcars, aes(x = factor(gear), fill = factor(gear))) +
+#'   geom_bar() +
+#'   scale_fill_ojo()
+#' @export
+scale_fill_ojo <- function() {
+  scale_fill_manual(values = palette_ojo_main)
+}
