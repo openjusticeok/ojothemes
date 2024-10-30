@@ -7,8 +7,10 @@
 #' @param base_family The font family to use; Roboto Condensed is the default.
 #' @param base_size The base font size to use; 14 is the default.
 #' @export
-theme_okpi <- function(base_family = "Roboto Condensed",
-                       base_size = 14) {
+theme_okpi <- function(base_size = 14,
+                       base_family = "Roboto Condensed",
+                       base_line_size = base_line_size,
+                       base_rect_size = base_rect_size) {
   # Base theme
   theme_okpi <- ggplot2::theme_grey(
     base_size = base_size,
@@ -76,7 +78,7 @@ theme_okpi <- function(base_family = "Roboto Condensed",
   scale_color_okpi <- ojothemes::scale_color_okpi()
   scale_fill_okpi <- ojothemes::scale_fill_okpi()
 
-  # Wrap everything together in a theme
+  # Wrap everything together so that the scales are also applied w/ the theme
   list(
     theme_okpi,
     scale_color_okpi,

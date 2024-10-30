@@ -4,15 +4,18 @@
 \alias{geom_col}
 \title{geom_col in the Open Justice Oklahoma style}
 \usage{
-geom_col(mapping = NULL, width = 0.7, ...)
-}
-\arguments{
-\item{mapping}{mapping from ggplot2}
-
-\item{width}{column width}
-
-\item{...}{other arguments passed to \code{geom_col()}}
+geom_col(
+  mapping = NULL,
+  data = NULL,
+  position = "stack",
+  ...,
+  width = NULL,
+  na.rm = FALSE,
+  show.legend = NA,
+  inherit.aes = TRUE
+)
 }
 \description{
-Submit \code{?ggplot2::geom_line} to see the full documentation for \code{geom_col()}
+A custom version of the geom_col() geom that uses the OJO version of the ggproto object instead of the default
+(this makes the bars skinnier)
 }

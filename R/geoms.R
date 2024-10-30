@@ -1,3 +1,57 @@
+#' @title OJO version of the ggproto GeomCol object
+#' @description
+#' This is a near-exact copy of the default ggplot2 GeomCol ggproto object.
+#' The only difference is that I've adjusted it to make the default column width smaller.
+GeomColOJO <- ggproto("GeomCol", GeomRect,
+                   required_aes = c("x", "y"),
+
+                   setup_data = function(data, params) {
+                     data$width <- data$width %||%
+                       params$width %||% (resolution(data$x, FALSE) * 0.7) # Set to 70% of resolution rather than default 90%
+                     transform(data,
+                               ymin = pmin(y, 0), ymax = pmax(y, 0),
+                               xmin = x - width / 2, xmax = x + width / 2, width = NULL
+                     )
+                   },
+
+                   draw_panel = function(self, data, panel_params, coord, width = NULL) {
+                     # Hack to ensure that width is detected as a parameter
+                     ggproto_parent(GeomRect, self)$draw_panel(data, panel_params, coord)
+                   }
+)
+
+#' geom_col in the Open Justice Oklahoma style
+#'
+#' @description
+#' A custom version of the geom_col() geom that uses the OJO version of the ggproto object instead of the default
+#' (this makes the bars skinnier)
+#'
+#' @md
+#' @export
+geom_col <- function(mapping = NULL, data = NULL,
+                     position = "stack",
+                     ...,
+                     width = NULL,
+                     na.rm = FALSE,
+                     show.legend = NA,
+                     inherit.aes = TRUE) {
+
+  layer(
+    data = data,
+    mapping = mapping,
+    stat = "identity",
+    geom = GeomColOJO, # Use OJO version of the ggproto object instead
+    position = position,
+    show.legend = show.legend,
+    inherit.aes = inherit.aes,
+    params = list(
+      width = width,
+      na.rm = na.rm,
+      ...
+    )
+  )
+}
+
 #' geom_bar in the Open Justice Oklahoma style
 #'
 #' Submit `?ggplot2::geom_line` to see the full documentation for `geom_bar()`
@@ -9,19 +63,6 @@
 #' @export
 geom_bar <- function(mapping = NULL, width = 0.7, ...) {
   ggplot2::geom_bar(mapping = mapping, width = width, ...)
-}
-
-#' geom_col in the Open Justice Oklahoma style
-#'
-#' Submit `?ggplot2::geom_line` to see the full documentation for `geom_col()`
-#'
-#' @md
-#' @param mapping mapping from ggplot2
-#' @param width column width
-#' @param ... other arguments passed to \code{geom_col()}
-#' @export
-geom_col <- function(mapping = NULL, width = 0.7, ...) {
-  ggplot2::geom_col(mapping = mapping, width = width, ...)
 }
 
 #' geom_jitter in the Open Justice Oklahoma style

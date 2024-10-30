@@ -10,7 +10,8 @@
 #' @param base_line_size,base_rect_size base line and rectangle sizes
 #' @export
 
-theme_ojo <- function(base_size = 8.5, base_family = "Roboto Mono",
+theme_ojo <- function(base_size = 14,
+                      base_family = "Roboto Mono",
                       base_line_size = 0.5,
                       base_rect_size = 0.5) {
 

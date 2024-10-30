@@ -24,23 +24,25 @@ okpi_set_theme <- function(style = "print",
 
   # set default theme to theme_ojo_*() --------------------------------------
 
-  if (style == "print") {
-    ggplot2::theme_set(theme_ojo_print(base_size = base_size,
-                                       base_family = base_family,
-                                       base_line_size = base_line_size,
-                                       base_rect_size = base_rect_size))
-  } else if (style == "map") {
-    ggplot2::theme_set(theme_ojo_map(base_size = base_size,
-                                     base_family = base_family,
-                                     base_line_size = base_line_size,
-                                     base_rect_size = base_rect_size,
-                                     scale = scale))
-  } else {
-    stop('Invalid "style" argument. Valid styles are: ',
-         '"print" and "map".',
-         call. = FALSE
-    )
-  }
+  # if (style == "print") {
+  ggplot2::theme_set(theme_okpi(base_size = base_size,
+                                base_family = base_family,
+                                base_line_size = base_line_size,
+                                base_rect_size = base_rect_size)[[1]])
+  # Need the [[1]] because theme_okpi() returns a list of [[1]] the theme, and [[2]] + [[3]] the scales
+
+  # } else if (style == "map") {
+  #   ggplot2::theme_set(theme_ojo_map(base_size = base_size,
+  #                                    base_family = base_family,
+  #                                    base_line_size = base_line_size,
+  #                                    base_rect_size = base_rect_size,
+  #                                    scale = scale))
+  # } else {
+  #   stop('Invalid "style" argument. Valid styles are: ',
+  #        '"print" and "map".',
+  #        call. = FALSE
+  #   )
+  # }
 
   # add base_family font to text and label geoms ---------------------------
   ggplot2::update_geom_defaults("text", list(family = base_family))
@@ -56,7 +58,7 @@ okpi_set_theme <- function(style = "print",
 
   # set default colors for monochromatic geoms ------------------------------
   ggplot2::update_geom_defaults("bar", list(fill = ojothemes::okpi_blue))
-  ggplot2::update_geom_defaults("col", list(fill = ojothemes::okpi_blue))
+  ggplot2::update_geom_defaults("colOJO", list(fill = ojothemes::okpi_blue))
   ggplot2::update_geom_defaults("point", list(colour = ojothemes::okpi_blue))
   ggplot2::update_geom_defaults("line", list(colour = ojothemes::okpi_blue))
   ggplot2::update_geom_defaults("step", list(colour = ojothemes::okpi_blue))

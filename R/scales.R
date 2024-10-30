@@ -10,7 +10,7 @@
 #'   scale_color_okpi()
 #' @export
 scale_color_okpi <- function() {
-  scale_color_manual(values = palette_okpi_main, na.value = "green")
+  scale_color_manual(values = palette_okpi_main)
 }
 
 #' OKPI Fill Scale

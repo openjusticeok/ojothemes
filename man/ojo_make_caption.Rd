@@ -11,6 +11,9 @@ ojo_make_caption(analyst_name = NA, source = NA)
 
 \item{name}{The name of the analyst to credit}
 }
+\value{
+A string with the caption text
+}
 \description{
 Creates the text for a caption to add to ggplots and gt tables, including consistent default "source: " statements.
 }
