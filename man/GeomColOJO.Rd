@@ -13,5 +13,6 @@ GeomColOJO
 \description{
 This is a near-exact copy of the default ggplot2 GeomCol ggproto object.
 The only difference is that I've adjusted it to make the default column width smaller.
+This ensures that it looks right no matter what the scale of the data you're using
 }
 \keyword{datasets}

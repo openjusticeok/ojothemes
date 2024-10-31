@@ -9,8 +9,8 @@
 #' @export
 theme_okpi <- function(base_size = 14,
                        base_family = "Roboto Condensed",
-                       base_line_size = base_line_size,
-                       base_rect_size = base_rect_size) {
+                       base_line_size = 0.5,
+                       base_rect_size = 0.5) {
   # Base theme
   theme_okpi <- ggplot2::theme_grey(
     base_size = base_size,

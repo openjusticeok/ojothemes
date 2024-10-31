@@ -17,5 +17,5 @@ geom_col(
 }
 \description{
 A custom version of the geom_col() geom that uses the OJO version of the ggproto object instead of the default
-(this makes the bars skinnier)
+(this makes the bars skinnier and nice looking consistently)
 }

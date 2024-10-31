@@ -2,6 +2,7 @@
 #' @description
 #' This is a near-exact copy of the default ggplot2 GeomCol ggproto object.
 #' The only difference is that I've adjusted it to make the default column width smaller.
+#' This ensures that it looks right no matter what the scale of the data you're using
 GeomColOJO <- ggproto("GeomCol", GeomRect,
                    required_aes = c("x", "y"),
 
@@ -24,7 +25,7 @@ GeomColOJO <- ggproto("GeomCol", GeomRect,
 #'
 #' @description
 #' A custom version of the geom_col() geom that uses the OJO version of the ggproto object instead of the default
-#' (this makes the bars skinnier)
+#' (this makes the bars skinnier and nice looking consistently)
 #'
 #' @md
 #' @export

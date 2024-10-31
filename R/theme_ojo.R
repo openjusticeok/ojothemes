@@ -18,9 +18,6 @@ theme_ojo <- function(base_size = 14,
   half_line <- base_size / 2L
 
   ggplot2::theme(
-
-    # main attributes
-
     line = ggplot2::element_line(colour = "#000000",
                                  size = base_line_size,
                                  linetype = 1L,
@@ -39,9 +36,7 @@ theme_ojo <- function(base_size = 14,
                                  lineheight = 0.9,
                                  margin = ggplot2::margin(),
                                  debug = FALSE),
-
     # Plot Attributes
-
     plot.tag = ggplot2::element_text(size = base_size * 1.5,
                                      hjust = 0L,
                                      vjust = 0L,
@@ -69,9 +64,7 @@ theme_ojo <- function(base_size = 14,
                                   r = base_line_size * 24,
                                   b = half_line,
                                   l = half_line),
-
     # axis attributes
-
     axis.text = ggplot2::element_text(size = base_size),
     axis.text.x = ggplot2::element_text(vjust = 1, margin = ggplot2::margin(t = 4L)),
     axis.text.y = ggplot2::element_text(hjust = 1),
@@ -106,9 +99,7 @@ theme_ojo <- function(base_size = 14,
                                         linetype = NULL,
                                         lineend = NULL),
     axis.line.y = ggplot2::element_blank(),
-
     # legend attributes
-
     legend.background = ggplot2::element_blank(),
 
     legend.spacing = ggplot2::unit(20L, "pt"),
@@ -135,9 +126,7 @@ theme_ojo <- function(base_size = 14,
     legend.box.margin = NULL,
     legend.box.background = NULL,
     legend.box.spacing = NULL,
-
     # panel attributes
-
     panel.background = ggplot2::element_blank(),
     panel.border = ggplot2::element_blank(),
     panel.ontop = FALSE,
@@ -153,9 +142,7 @@ theme_ojo <- function(base_size = 14,
     panel.grid.minor = ggplot2::element_line(),
     panel.grid.minor.x = ggplot2::element_blank(),
     panel.grid.minor.y = ggplot2::element_blank(),
-
     # strip attributes (Faceting)
-
     strip.background = ggplot2::element_rect(fill = "#dedddd",
                                              colour = NA,
                                              size = 10L),
@@ -166,16 +153,14 @@ theme_ojo <- function(base_size = 14,
     strip.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 4.5, b = 4.5)),
     strip.text.y = ggplot2::element_text(angle = -90L,
                                          margin = ggplot2::margin(l = 4.5, r = 4.5)),
-
     strip.placement = "inside",
     strip.placement.x =  NULL,
     strip.placement.y =  NULL,
-
     strip.switch.pad.grid = ggplot2::unit(0.1, "cm"),
     strip.switch.pad.wrap = ggplot2::unit(0.1, "cm"),
-
     # create a complete format
     complete = TRUE
-
   )
+
+
 }
