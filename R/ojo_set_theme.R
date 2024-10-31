@@ -16,7 +16,7 @@
 #' @md
 #' @export
 ojo_set_theme <- function(theme = "okpi",
-                          base_size = 14,
+                          base_size = 18,
                           base_line_size = 0.5,
                           base_rect_size = 0.5,
                           scale = "continuous") {
@@ -49,7 +49,7 @@ ojo_set_theme <- function(theme = "okpi",
                                  base_rect_size = base_rect_size))
 
     base_family <- "Roboto Condensed"
-    default_color <- "#407fc1"
+    default_color <- ojothemes::tok_blue
     default_palette <- ojothemes::palette_okpi_main
 
   }

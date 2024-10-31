@@ -3,16 +3,14 @@
 #' \code{theme_ojo} provides a [ggplot2] theme formatted according to the
 #' Open Justice Oklahoma style guide for web, with sensible defaults.
 #'
-#' @import extrafont
-#' @import ggrepel
 #' @md
 #' @param base_family,base_size base font family and size
 #' @param base_line_size,base_rect_size base line and rectangle sizes
 #' @export
-theme_ojo <- function(base_size = 14,
-                      base_family = "Roboto Mono",
-                      base_line_size = 0.5,
-                      base_rect_size = 0.5) {
+theme_ojo_base <- function(base_size = 16,
+                           base_family = "Roboto Mono",
+                           base_line_size = 0.5,
+                           base_rect_size = 0.5) {
 
   half_line <- base_size / 2L
 
@@ -42,17 +40,17 @@ theme_ojo <- function(base_size = 14,
                                      face = "bold",
                                      margin = ggplot2::margin(b = 10L)),
     plot.tag.position = "topleft",
-    plot.title = ggplot2::element_text(size = base_size * 12 / 8.5,
+    plot.title = ggplot2::element_text(size = base_size * 14 / 8.5,
                                        hjust = 0L,
                                        vjust = 0L,
                                        face = "bold",
                                        margin = ggplot2::margin(b = 10L)),
     plot.title.position = "plot",
-    plot.subtitle = ggplot2::element_text(size = base_size * 9.5 / 8.5,
+    plot.subtitle = ggplot2::element_text(size = base_size * 10 / 8.5,
                                           hjust = 0L,
                                           vjust = 0L,
                                           margin = ggplot2::margin(b = 10L)),
-    plot.caption = ggplot2::element_text(size = base_size * 7 / 8.5,
+    plot.caption = ggplot2::element_text(size = base_size * 9 / 8.5,
                                          hjust = 1L,
                                          vjust = 1L,
                                          margin = ggplot2::margin(t = half_line * 0.9)),
@@ -161,5 +159,39 @@ theme_ojo <- function(base_size = 14,
     complete = TRUE
   )
 
+}
+
+#' A [ggplot2] theme formatted in the Oklahoma Policy Institute style
+#'
+#' \code{theme_okpi} provides a [ggplot2] theme formatted according to the
+#' Oklahoma Policy Institute style guide for web, with sensible defaults,
+#' and also inclusdes the OKPI fill and color scales.
+#'
+#' @md
+#' @param base_family The font family to use; Roboto Condensed is the default.
+#' @param base_size The base font size to use; 14 is the default.
+#' @param base_line_size The base line size to use; 0.5 is the default.
+#' @param base_rect_size The base rect size to use; 0.5 is the default.
+#' @export
+theme_ojo <- function(base_size = 14,
+                      base_family = "Roboto Mono",
+                      base_line_size = 0.5,
+                      base_rect_size = 0.5) {
+
+  theme_ojo_base <- theme_ojo_base(base_size = base_size,
+                                   base_family = base_family,
+                                   base_line_size = base_line_size,
+                                   base_rect_size = base_rect_size)
+
+  # Set scales to use okpi palettes
+  scale_color_ojo <- ojothemes::scale_color_ojo()
+  scale_fill_ojo <- ojothemes::scale_fill_ojo()
+
+  # Wrap everything together so that the scales are also applied w/ the theme
+  list(
+    theme_ojo_base,
+    scale_color_ojo,
+    scale_fill_ojo
+  )
 
 }

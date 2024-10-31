@@ -15,10 +15,12 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Depends:
-  ggplot2
+  ggplot2,
+  showtext
 Imports:
-  extrafont,
-  ggrepel
-Suggests: 
-    testthat (>= 3.0.0)
+  curl,
+  jsonlite
+Suggests:
+  ggrepel,
+  testthat (>= 3.0.0)
 Config/testthat/edition: 3

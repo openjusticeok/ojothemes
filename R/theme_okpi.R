@@ -5,11 +5,11 @@
 #'
 #' @md
 #' @param base_family The font family to use; Roboto Condensed is the default.
-#' @param base_size The base font size to use; 14 is the default.
+#' @param base_size The base font size to use; 16 is the default.
 #' @param base_line_size The base line size to use; 0.5 is the default.
 #' @param base_rect_size The base rect size to use; 0.5 is the default.
 #' @export
-theme_okpi_base <- function(base_size = 14,
+theme_okpi_base <- function(base_size = 16,
                             base_family = "Roboto Condensed",
                             base_line_size = 0.5,
                             base_rect_size = 0.5) {
@@ -43,37 +43,40 @@ theme_okpi_base <- function(base_size = 14,
     panel.grid.minor.y = ggplot2::element_line(linewidth = 0.25),
     panel.spacing = grid::unit(6, "pt"),
     plot.title = ggplot2::element_text(
-      size = ggplot2::rel(1.66),
+      size = ggplot2::rel(2),
       face = "bold",
+      hjust = 0,
       color = palette_okpi_main[3],
       lineheight = 0.7,
-      hjust = 0,
       margin = ggplot2::margin(0, 0, 6, 0, "pt")
     ),
     plot.title.position = "plot",
     plot.subtitle = ggplot2::element_text(
-      size = ggplot2::rel(1.33),
+      size = ggplot2::rel(1.66),
       face = "bold.italic",
+      hjust = 0,
       family = "Roboto Condensed",
       lineheight = 0.7,
-      hjust = 0,
       margin = ggplot2::margin(0, 0, 6, 0, "pt")
     ),
     plot.caption.position = "plot",
     plot.caption = ggplot2::element_text(
-      size = ggplot2::rel(1),
+      size = ggplot2::rel(1.2),
       lineheight = 0.75,
       face = "italic",
+      hjust = 1
     ),
     legend.title = ggplot2::element_blank(),
     legend.text = ggplot2::element_text(size = ggplot2::rel(1.16)),
     legend.margin = ggplot2::margin(0, 0, 0, 0),
     axis.title = ggplot2::element_text(
       size = ggplot2::rel(1.16),
-      face = "bold"
+      face = "bold",
+      hjust = 0.5,
     ),
     axis.text = ggplot2::element_text(
-      size = ggplot2::rel(1.16)
+      size = ggplot2::rel(1.16),
+      hjust = 0.5
     ),
     axis.line.x.bottom = ggplot2::element_line(
       color = "#333333",
@@ -83,7 +86,9 @@ theme_okpi_base <- function(base_size = 14,
     ),
     axis.ticks.y = ggplot2::element_blank(),
     strip.background = ggplot2::element_blank(),
-    strip.text = ggplot2::element_text(face = "bold")
+    strip.text = ggplot2::element_text(face = "bold"),
+
+    complete = TRUE
   )
 }
 

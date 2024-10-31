@@ -14,6 +14,11 @@
                               dpi = 72)
   }
 
+  # Set up showtext
+  sysfonts::font_add_google("Roboto Mono")
+  sysfonts::font_add_google("Roboto Condensed")
+  showtext::showtext_auto()
+
   # check ggplot2 version
   if (unlist(utils::packageVersion("ggplot2"))[1] < 3) {
     packageStartupMessage(

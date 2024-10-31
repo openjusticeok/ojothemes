@@ -6,8 +6,7 @@
 \usage{
 ojo_set_theme(
   theme = "okpi",
-  base_size = 14,
-  base_family = "Roboto Condensed",
+  base_size = 18,
   base_line_size = 0.5,
   base_rect_size = 0.5,
   scale = "continuous"
@@ -19,8 +18,6 @@ ojo_set_theme(
 \item{base_size}{The base font size for the theme. All fonts are relative to
 this value.}
 
-\item{base_family}{The base font family for the theme.}
-
 \item{base_line_size}{The base line size for the theme. All line sizes are
 relative to this value.}
 
@@ -28,6 +25,8 @@ relative to this value.}
 relative to this value.}
 
 \item{scale}{For \code{theme_ojo_map()}. Should the legend theme be continuous or discrete?}
+
+\item{base_family}{The base font family for the theme.}
 }
 \description{
 \code{ojo_set_theme} provides a \link{ggplot2} theme formatted according to the

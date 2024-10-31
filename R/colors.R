@@ -1,3 +1,4 @@
+#' OKPI Pallettes ==============================================================
 #' OKPI Extended Palette
 #'
 #' A vector with hex-color codes that correspond to the extended color palette outlined in the Open Justice Oklahoma Data Visualization Style Guide.
@@ -73,7 +74,7 @@ okpi_yellow_light <- colorspace::lighten(okpi_yellow, amount = 0.99)
 #' @export
 okpi_yellow_palette <- colorRampPalette(c(okpi_yellow_light, okpi_yellow))
 
-# OJO Palettes
+# OJO Palettes =================================================================
 #' OJO Main Palette
 #'
 #' A vector with hex-color codes for the main OJO palette.
@@ -84,14 +85,14 @@ okpi_yellow_palette <- colorRampPalette(c(okpi_yellow_light, okpi_yellow))
 #' @rdname ojo_palettes
 #' @export
 palette_ojo_main <- c(
-  cyan = "#1696d2",
-  yellow = "#fdbf11",
-  black = "#000000",
-  gray = "#d2d2d2",
-  magenta = "#ec008b",
-  green = "#55b748",
-  `space gray` = "#5c5859",
-  red = "#db2b27"
+  "#1696d2",
+  "#fdbf11",
+  "#000000",
+  "#d2d2d2",
+  "#ec008b",
+  "#55b748",
+  "#5c5859",
+  "#db2b27"
 )
 
 #' OJO Diverging Palette
@@ -284,3 +285,29 @@ palette_ojo_red <- c(
   "#6e1614",
   "#370b0a"
 )
+
+# TOK Palettes =================================================================
+
+#' @title TOK main palette
+#' @name palette_tok_main
+#' @family tok palettes
+#' @rdname tok_palettes
+#' @export
+palette_tok_main <- c(
+  "#407fc1", # Blue
+  "#ec2a28", # Red
+  "#febf66", # Bright Yellow
+  "#2c9381", # Green
+  "#dd8000", # Orange
+  "#533191", # Purple
+  "#4198af", # Turquoise
+  "#e26275", # Pink
+  "#b9cd95", # Light Green
+  "#a99bbc" # Light Purple
+)
+
+#' @title TOK Blue
+#' @export
+tok_blue <- "#407fc1"
+
+
