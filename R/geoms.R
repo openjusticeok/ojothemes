@@ -2,7 +2,7 @@
 #' @description
 #' This is a near-exact copy of the default ggplot2 GeomCol ggproto object.
 #' The only difference is that I've adjusted it to make the default column width smaller.
-#' This ensures that it looks right no matter what the scale of the data you're using
+#' This ensures that it looks right no matter what the scale of the data you're using.
 GeomColOJO <- ggproto("GeomCol", GeomRect,
                    required_aes = c("x", "y"),
 
@@ -32,7 +32,6 @@ GeomColOJO <- ggproto("GeomCol", GeomRect,
 geom_col <- function(mapping = NULL, data = NULL,
                      position = "stack",
                      ...,
-                     width = NULL,
                      na.rm = FALSE,
                      show.legend = NA,
                      inherit.aes = TRUE) {
@@ -46,7 +45,6 @@ geom_col <- function(mapping = NULL, data = NULL,
     show.legend = show.legend,
     inherit.aes = inherit.aes,
     params = list(
-      width = width,
       na.rm = na.rm,
       ...
     )
@@ -55,7 +53,7 @@ geom_col <- function(mapping = NULL, data = NULL,
 
 #' geom_bar in the Open Justice Oklahoma style
 #'
-#' Submit `?ggplot2::geom_line` to see the full documentation for `geom_bar()`
+#' #' #' Submit `?ggplot2::geom_bar` to see the full documentation for `geom_bar()`
 #'
 #' @md
 #' @param mapping mapping from ggplot2
@@ -68,7 +66,7 @@ geom_bar <- function(mapping = NULL, width = 0.7, ...) {
 
 #' geom_jitter in the Open Justice Oklahoma style
 #'
-#' Submit `?ggplot2::geom_jitter` to see the full documentation for `geom_jitter()`
+#' #' Submit `?ggplot2::geom_jitter` to see the full documentation for `geom_jitter()`
 #'
 #' @md
 #' @param mapping mapping from ggplot2
@@ -85,11 +83,11 @@ geom_jitter <- function(mapping = NULL, size = 3, ...) {
 #'
 #' @md
 #' @param mapping mapping from ggplot2
-#' @param size line size
+#' @param linewidth line size
 #' @param ... other arguments passed to \code{geom_line()}
 #' @export
-geom_line <- function(mapping = NULL, size = 1, ...) {
-  ggplot2::geom_line(mapping = mapping, size = size, ...)
+geom_line <- function(mapping = NULL, linewidth = 1.5, ...) {
+  ggplot2::geom_line(mapping = mapping, linewidth = linewidth, ...)
 }
 
 #' geom_step in the Open Justice Oklahoma style

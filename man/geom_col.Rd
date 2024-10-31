@@ -9,7 +9,6 @@ geom_col(
   data = NULL,
   position = "stack",
   ...,
-  width = NULL,
   na.rm = FALSE,
   show.legend = NA,
   inherit.aes = TRUE
