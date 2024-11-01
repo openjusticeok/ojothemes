@@ -34,19 +34,19 @@ ojo_set_theme <- function(theme = "okpi",
     default_palette <- ojothemes::palette_okpi_main
 
   } else if (theme == "ojo") {
-    ggplot2::theme_set(theme_ojo(base_size = base_size,
-                                 base_line_size = base_line_size,
-                                 base_rect_size = base_rect_size))
+    ggplot2::theme_set(theme_ojo_base(base_size = base_size,
+                                      base_line_size = base_line_size,
+                                      base_rect_size = base_rect_size))
 
     base_family <- "Roboto Mono"
     default_color <- "black"
     default_palette <- ojothemes::palette_ojo_main
 
   } else if (theme == "tok") {
-    ggplot2::theme_set(theme_tok(base_size = base_size,
-                                 base_family = "Roboto Condensed",
-                                 base_line_size = base_line_size,
-                                 base_rect_size = base_rect_size))
+    ggplot2::theme_set(theme_tok_base(base_size = base_size,
+                                      base_family = "Roboto Condensed",
+                                      base_line_size = base_line_size,
+                                      base_rect_size = base_rect_size))
 
     base_family <- "Roboto Condensed"
     default_color <- ojothemes::tok_blue
@@ -57,8 +57,8 @@ ojo_set_theme <- function(theme = "okpi",
   # add base_family font to text and label geoms ---------------------------
   ggplot2::update_geom_defaults("text", list(family = base_family))
   ggplot2::update_geom_defaults("label", list(family = base_family))
-  ggplot2::update_geom_defaults("text_repel", list(family = base_family))
-  ggplot2::update_geom_defaults("label_repel", list(family = base_family))
+  # ggplot2::update_geom_defaults("text_repel", list(family = base_family)) # Keep ggrepel in this?
+  # ggplot2::update_geom_defaults("label_repel", list(family = base_family))
 
   # set default color scales  ----------------------------------------------
   options(
