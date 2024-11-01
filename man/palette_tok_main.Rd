@@ -13,5 +13,4 @@ palette_tok_main
 \description{
 TOK main palette
 }
-\concept{tok palettes}
 \keyword{datasets}

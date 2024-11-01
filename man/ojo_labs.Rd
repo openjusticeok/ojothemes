@@ -7,6 +7,8 @@
 ojo_labs(..., analyst_name = NA, source = NA)
 }
 \arguments{
+\item{...}{Other arguments passed to labs()}
+
 \item{analyst_name}{The name of the analyst to credit}
 
 \item{source}{The data source / source of the data.}

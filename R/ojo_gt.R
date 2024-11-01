@@ -14,7 +14,7 @@ ojo_gt <- function(data, title = NA, subtitle = NA) {
     gt::gt() |>
     gtExtras::gt_theme_nytimes() |>
     gt::tab_spanner(
-      label = str_to_titlecase(colnames(data))
+      label = stringr::str_to_title(colnames(data))
     ) |>
     gt::tab_options(
       column_labels.font.size = "medium",

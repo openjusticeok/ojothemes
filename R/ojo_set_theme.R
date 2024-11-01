@@ -6,7 +6,6 @@
 #' @param theme The theme you wish to use. Options are "okpi", "ojo", or "tok".
 #' @param base_size The base font size for the theme. All fonts are relative to
 #' this value.
-#' @param base_family The base font family for the theme.
 #' @param base_line_size The base line size for the theme. All line sizes are
 #' relative to this value.
 #' @param base_rect_size The base rect size for the theme. All rect sizes are

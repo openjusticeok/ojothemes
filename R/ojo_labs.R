@@ -3,7 +3,7 @@
 #' Creates the text for a caption to add to ggplots and gt tables, including consistent default "source: " statements.
 #'
 #' @param source The domain / source of the data. Can be one of "oscn", "ocdc", or "ppb" for canned text, NA for no source, or a custom string.
-#' @param name The name of the analyst to credit
+#' @param analyst_name The name of the analyst to credit
 #' @returns A string with the caption text
 #' @export
 ojo_make_caption <- function(analyst_name = NA,
@@ -43,6 +43,8 @@ ojo_make_caption <- function(analyst_name = NA,
 #'
 #' @param analyst_name The name of the analyst to credit
 #' @param source The data source / source of the data.
+#' @param ... Other arguments passed to labs()
+#'
 #' @export
 ojo_labs <- function (...,
                       analyst_name = NA,

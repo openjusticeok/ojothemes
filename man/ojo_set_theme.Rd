@@ -25,8 +25,6 @@ relative to this value.}
 relative to this value.}
 
 \item{scale}{For \code{theme_ojo_map()}. Should the legend theme be continuous or discrete?}
-
-\item{base_family}{The base font family for the theme.}
 }
 \description{
 \code{ojo_set_theme} provides a \link{ggplot2} theme formatted according to the
