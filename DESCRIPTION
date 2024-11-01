@@ -21,17 +21,16 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-Depends:
 Imports:
-  colorspace,
-  dplyr,
-  ggplot2,
-  gt,
-  gtExtras,
-  rlang,
-  showtext,
-  stringr,
-  sysfonts,
+    colorspace,
+    dplyr,
+    ggplot2,
+    gt,
+    rlang,
+    showtext,
+    stringr,
+    sysfonts,
+    tidyselect
 Suggests:
   ggrepel,
   testthat (>= 3.0.0)
