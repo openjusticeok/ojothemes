@@ -24,7 +24,7 @@ RoxygenNote: 7.3.2
 Imports:
     colorspace,
     dplyr,
-    ggplot2,
+    ggplot2 (>= 3.0.0),
     gt,
     rlang,
     showtext,

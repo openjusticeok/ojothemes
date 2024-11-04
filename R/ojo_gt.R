@@ -42,14 +42,23 @@ gt_okpi <- function(data,
       font = gt::google_font(font)
     ) |>
     gt::tab_style(
-      style = gt::cell_text(weight = "bold",
-                            color = ojothemes::okpi_red,
-                            size = gt::px(font_size * 2)),
+      style = list(
+        gt::cell_text(weight = "bold",
+                      color = ojothemes::okpi_red,
+                      size = gt::px(font_size * 2)),
+        gt::css(padding.left = "10px",
+                border.left = paste0("10px solid ", okpi_red, ";"))
+      ),
       locations = gt::cells_title(groups = "title")
     ) |>
     gt::tab_style(
-      style = gt::cell_text(style = "italic",
-                            size = gt::px(font_size * 1.25)),
+      style = list(
+        gt::cell_text(style = "italic",
+                      color = ojothemes::okpi_blue,
+                      size = gt::px(font_size * 1.25)),
+        gt::css(padding.left = "10px",
+                border.left = paste0("10px solid ", okpi_red, ";"))
+        ),
       locations = gt::cells_title(groups = "subtitle")
     ) |>
     gt::tab_style(
@@ -133,14 +142,23 @@ gt_ojo <- function(data,
       font = gt::google_font(font)
     ) |>
     gt::tab_style(
-      style = gt::cell_text(weight = "bold",
-                            color = "#333333",
-                            size = gt::px(font_size * 2)),
+      style = list(
+        gt::cell_text(weight = "bold",
+                      color = "#333333",
+                      size = gt::px(font_size * 2)),
+        # I think this little splash of color is nice
+        gt::css(padding.left = "10px",
+                border.left = paste0("10px solid ", okpi_yellow, ";"))
+      ),
       locations = gt::cells_title(groups = "title")
     ) |>
     gt::tab_style(
-      style = gt::cell_text(style = "italic",
+      style = list(
+        gt::cell_text(style = "italic",
                             size = gt::px(font_size * 1.25)),
+        gt::css(padding.left = "10px",
+                border.left = paste0("10px solid ", okpi_yellow, ";"))
+        ),
       locations = gt::cells_title(groups = "subtitle")
     ) |>
     gt::tab_style(
