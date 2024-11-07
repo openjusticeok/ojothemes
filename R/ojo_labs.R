@@ -16,6 +16,7 @@ ojo_source_text <- function(source = NA) {
     source == "oscn" ~ "Source: OK Policy Institute analysis of Oklahoma State Courts Network data.",
     source == "ocdc" ~ "Source: OK Policy Institute analysis of data from the Oklahoma County Detention Center's 'Jailtracker' system.",
     source == "ppb" ~  "Source: OK Policy Institute analysis of Oklahoma Pardon and Parole Board records.",
+    # TODO: add OJA
     is.na(source) ~ "", # If source = NA, just leave that out of the caption
     TRUE ~ source # If source is anything else, just print it verbatim
   )
