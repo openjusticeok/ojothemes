@@ -50,6 +50,21 @@ gt_base <- function(data,
                             transform = "uppercase",
                             weight = "bold"),
       locations = gt::cells_column_labels(tidyselect::everything())
+    ) |>
+    gt::tab_style(
+      style = list(
+        gt::cell_text(weight = "bold",
+                      size = gt::px(font_size * 2))
+      ),
+      locations = gt::cells_title(groups = "title")
+    ) |>
+    gt::tab_style(
+      style = list(
+        gt::cell_text(style = "italic",
+                      color = "#333333",
+                      size = gt::px(font_size * 1.25))
+      ),
+      locations = gt::cells_title(groups = "subtitle")
     )
 
 
@@ -111,9 +126,7 @@ gt_okpi <- function(data,
     ) |>
     gt::tab_style(
       style = list(
-        gt::cell_text(weight = "bold",
-                      color = ojothemes::okpi_red,
-                      size = gt::px(font_size * 2)),
+        gt::cell_text(color = ojothemes::okpi_red),
         gt::css(padding.left = "10px",
                 border.left = paste0("10px solid ", okpi_red, ";"))
       ),
@@ -121,9 +134,6 @@ gt_okpi <- function(data,
     ) |>
     gt::tab_style(
       style = list(
-        gt::cell_text(style = "italic",
-                      color = "#333333",
-                      size = gt::px(font_size * 1.25)),
         gt::css(padding.left = "10px",
                 border.left = paste0("10px solid ", okpi_red, ";"))
         ),
@@ -170,10 +180,6 @@ gt_ojo <- function(data,
     ) |>
     gt::tab_style(
       style = list(
-        gt::cell_text(weight = "bold",
-                      color = "#333333",
-                      size = gt::px(font_size * 2)),
-        # I think this little splash of color is nice
         gt::css(padding.left = "10px",
                 border.left = paste0("10px solid ", okpi_yellow, ";"))
       ),
@@ -181,8 +187,6 @@ gt_ojo <- function(data,
     ) |>
     gt::tab_style(
       style = list(
-        gt::cell_text(style = "italic",
-                            size = gt::px(font_size * 1.25)),
         gt::css(padding.left = "10px",
                 border.left = paste0("10px solid ", okpi_yellow, ";"))
         ),
