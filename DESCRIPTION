@@ -32,7 +32,9 @@ Imports:
     sysfonts,
     tidyselect
 Suggests:
-  ggrepel,
-  testthat (>= 3.0.0)
+    ggrepel,
+    testthat (>= 3.0.0),
+    tibble,
+    vdiffr
 Config/testthat/edition: 3
 URL: https://openjusticeok.github.io/ojothemes/
