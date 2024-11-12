@@ -38,8 +38,8 @@ First, let's see how this data looks on a default ggplot:
 p1 <- data |>
   # We'll look at the bookings by race here,
   # and we'll look by month just to make it easier to see.
-  mutate(book_month = floor_date(book_date, "months")) |>
-  count(book_month, race) |>
+  count(book_month = floor_date(book_date, "months"), 
+        race) |>
   ggplot(aes(x = book_month, y = n, fill = race)) +
   geom_col()
 
