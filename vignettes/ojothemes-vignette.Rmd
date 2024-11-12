@@ -19,7 +19,9 @@ This guide will walk you through the themes and tools available in the `ojoTheme
 ```{r setup}
 library(ojothemes)
 library(ojodb)
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(lubridate)
 library(gt)
 
 # Test data from OCDC
