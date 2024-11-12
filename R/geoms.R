@@ -20,7 +20,7 @@ GeomColOJO <- ggplot2::ggproto(
 
   draw_panel = function(self, data, panel_params, coord, width = NULL) {
     # Hack to ensure that width is detected as a parameter
-    ggplot2::ggproto_parent(GeomRect, self)$draw_panel(data, panel_params, coord)
+    ggplot2::ggproto_parent(ggplot2::GeomRect, self)$draw_panel(data, panel_params, coord)
   }
 )
 
