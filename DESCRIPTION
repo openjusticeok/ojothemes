@@ -33,8 +33,12 @@ Imports:
     tidyselect
 Suggests:
     ggrepel,
+    knitr,
+    ojodb,
+    rmarkdown,
     testthat (>= 3.0.0),
     tibble,
     vdiffr
 Config/testthat/edition: 3
 URL: https://openjusticeok.github.io/ojothemes/
+VignetteBuilder: knitr
