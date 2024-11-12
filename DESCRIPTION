@@ -34,11 +34,14 @@ Imports:
 Suggests:
     ggrepel,
     knitr,
+    lubridate,
     ojodb,
     rmarkdown,
     testthat (>= 3.0.0),
     tibble,
     vdiffr
+Remotes:
+    openjusticeok/ojodb
 Config/testthat/edition: 3
 URL: https://openjusticeok.github.io/ojothemes/
 VignetteBuilder: knitr
