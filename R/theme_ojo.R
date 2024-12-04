@@ -107,6 +107,7 @@ theme_ojo_base <- function(base_size = 16,
     legend.key.size = ggplot2::unit(10L, "pt"),
     legend.key.height = NULL,
     legend.key.width = NULL,
+    legend.key.spacing.x = ggplot2::unit(12L, "pt"),
 
     legend.text = ggplot2::element_text(size = base_size * 9.5 / 8.5,
                                         vjust = 0.5),
