@@ -25,12 +25,15 @@ library(lubridate)
 library(gt)
 
 # Test data from OCDC
-data <- ojo_tbl(schema = "ocdc",
-                table = "arrest") |>
-  filter(book_date >= "01-01-2024",
-         book_date < "11-01-2024") |>
-  ojo_collect() 
-
+data <- ojo_tbl(
+  schema = "ocdc",
+  table = "arrest"
+) |>
+  filter(
+    book_date >= "01-01-2024",
+    book_date < "11-01-2024"
+  ) |>
+  ojo_collect()
 ```
 ## Themes for `ggplot` graphs
 
@@ -40,8 +43,10 @@ First, let's see how this data looks on a default ggplot:
 p1 <- data |>
   # We'll look at the bookings by race here,
   # and we'll look by month just to make it easier to see.
-  count(book_month = floor_date(book_date, "months"), 
-        race) |>
+  count(
+    book_month = floor_date(book_date, "months"),
+    race
+  ) |>
   ggplot(aes(x = book_month, y = n, fill = race)) +
   geom_col()
 
@@ -52,12 +57,14 @@ Next, let's gussy this up with our `ojoThemes` tools. First, let's use the `ojot
 
 ```{r ojo_labs}
 p1 <- p1 +
-  ojo_labs(analyst_name = "Andrew Bell",
-           source = "ocdc",
-           title = "OCDC Bookings by Race",
-           subtitle = "January 2024 - October 2024",
-           x = "Month",
-           y = "Total Booking Events")
+  ojo_labs(
+    analyst_name = "Andrew Bell",
+    source = "ocdc",
+    title = "OCDC Bookings by Race",
+    subtitle = "January 2024 - October 2024",
+    x = "Month",
+    y = "Total Booking Events"
+  )
 
 p1
 ```
@@ -84,7 +91,7 @@ p1
 
 ## Themes for `gt` tables
 
-This package also has built in themes for tables made with `gt`. You can use these by replacing the normal `gt()` function with one of our themed wrappers (currently `gt_okpi()` and `gt_ojo()`). These have built in arguments for customization: 
+This package also has built in themes for tables made with `gt`. You can use these by replacing the normal `gt()` function with one of our themed wrappers (currently `gt_okpi()` and `gt_ojo()`). These have built in arguments for customization:
 
   * `source` and `analyst_name` (which work just like the `ojo_labs()` function for ggplots)
   * `title` and `subtitle` (self explanatory)
@@ -104,11 +111,13 @@ data |>
 ```{r gt_okpi}
 data |>
   count(race) |>
-  gt_okpi(title = "OCDC Bookings by Race",
-          subtitle = "January 2024 - October 2024",
-          source = "ocdc",
-          analyst_name = "Andrew Bell",
-          format_cols = TRUE)
+  gt_okpi(
+    title = "OCDC Bookings by Race",
+    subtitle = "January 2024 - October 2024",
+    source = "ocdc",
+    analyst_name = "Andrew Bell",
+    format_cols = TRUE
+  )
 ```
 
 ...and finally, here's `gt_ojo()`:
@@ -116,9 +125,11 @@ data |>
 ```{r gt_ojo}
 data |>
   count(race) |>
-  gt_ojo(title = "OCDC Bookings by Race",
-         subtitle = "January 2024 - October 2024",
-         source = "ocdc",
-         analyst_name = "Andrew Bell",
-         format_cols = TRUE)
+  gt_ojo(
+    title = "OCDC Bookings by Race",
+    subtitle = "January 2024 - October 2024",
+    source = "ocdc",
+    analyst_name = "Andrew Bell",
+    format_cols = TRUE
+  )
 ```

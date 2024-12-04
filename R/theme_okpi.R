@@ -39,8 +39,8 @@ theme_okpi_base <- function(base_size = 16,
     panel.border = ggplot2::element_blank(),
     panel.grid.major.x = ggplot2::element_blank(),
     panel.grid.minor.x = ggplot2::element_blank(),
-    panel.grid.major.y = ggplot2::element_line(linewidth = 0.5),
-    panel.grid.minor.y = ggplot2::element_line(linewidth = 0.25),
+    panel.grid.major.y = ggplot2::element_line(linewidth = 0.5, color = "#cccccc"),
+    panel.grid.minor.y = ggplot2::element_blank(),
     panel.spacing = grid::unit(6, "pt"),
     plot.title = ggplot2::element_text(
       size = ggplot2::rel(2),
@@ -57,14 +57,15 @@ theme_okpi_base <- function(base_size = 16,
       hjust = 0,
       family = "Roboto Condensed",
       lineheight = 0.7,
-      margin = ggplot2::margin(0, 0, 6, 0, "pt")
+      margin = ggplot2::margin(0, 0, 18, 0, "pt")
     ),
     plot.caption.position = "plot",
     plot.caption = ggplot2::element_text(
       size = ggplot2::rel(1.2),
       lineheight = 0.75,
       face = "italic",
-      hjust = 1
+      hjust = 1,
+      margin = ggplot2::margin(18, 0, 0, 0, "pt")
     ),
     legend.title = ggplot2::element_blank(),
     legend.text = ggplot2::element_text(size = ggplot2::rel(1.16)),
@@ -73,6 +74,10 @@ theme_okpi_base <- function(base_size = 16,
       size = ggplot2::rel(1.16),
       face = "bold",
       hjust = 0.5,
+    ),
+    axis.title.y = ggplot2::element_text(
+      angle = 90,
+      margin = ggplot2::margin(0, 12, 0, 0, "pt")
     ),
     axis.text = ggplot2::element_text(
       size = ggplot2::rel(1.16),
