@@ -245,7 +245,7 @@ ojo_lines <- function(data,
       axis.title = element_blank()
     )
 
-  if (any(is.na(facet_labels)) & length(facet_labels) == 1) {
+  if (any(is.na(facet_labels)) && length(facet_labels) == 1) {
     p <-
       p +
       theme(
