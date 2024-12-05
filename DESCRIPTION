@@ -1,5 +1,5 @@
 Package: ojothemes
-Title: OJO, OKPI, and TOK themes for {ggplot2} and {gt}
+Title: OJO, OKPI, and TOK themes for ggplot2 and gt
 Version: 0.0.0.9000
 Authors@R: 
     c(
@@ -15,7 +15,7 @@ Authors@R:
     email = "aflores@okpolicy.com",
     role = "aut"
   ))
-Description: This package contains themes for {ggplot2} and {gt} that follow the styles of OJO / OKPI / TOK.
+Description: This package contains themes for ggplot2 plots and gt tables that follow the styles of OJO / OKPI / TOK.
 License: GPL (>= 3) + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -26,6 +26,7 @@ Imports:
     dplyr,
     ggplot2 (>= 3.0.0),
     gt,
+    lifecycle,
     rlang,
     showtext,
     stringr,
