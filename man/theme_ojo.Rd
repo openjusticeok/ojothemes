@@ -2,21 +2,26 @@
 % Please edit documentation in R/theme_ojo.R
 \name{theme_ojo}
 \alias{theme_ojo}
-\title{A \link{ggplot2} theme formatted in the Open Justice Oklahoma style}
+\title{A \link{ggplot2} theme formatted in the Oklahoma Policy Institute style}
 \usage{
 theme_ojo(
-  base_size = 8.5,
+  base_size = 14,
   base_family = "Roboto Mono",
   base_line_size = 0.5,
   base_rect_size = 0.5
 )
 }
 \arguments{
-\item{base_family, base_size}{base font family and size}
+\item{base_size}{The base font size to use; 14 is the default.}
 
-\item{base_line_size, base_rect_size}{base line and rectangle sizes}
+\item{base_family}{The font family to use; Roboto Condensed is the default.}
+
+\item{base_line_size}{The base line size to use; 0.5 is the default.}
+
+\item{base_rect_size}{The base rect size to use; 0.5 is the default.}
 }
 \description{
-\code{theme_ojo} provides a \link{ggplot2} theme formatted according to the
-Open Justice Oklahoma style guide for web, with sensible defaults.
+\code{theme_okpi} provides a \link{ggplot2} theme formatted according to the
+Oklahoma Policy Institute style guide for web, with sensible defaults,
+and also inclusdes the OKPI fill and color scales.
 }

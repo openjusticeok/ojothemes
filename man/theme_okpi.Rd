@@ -4,14 +4,24 @@
 \alias{theme_okpi}
 \title{A \link{ggplot2} theme formatted in the Oklahoma Policy Institute style}
 \usage{
-theme_okpi(base_family = "Roboto Condensed", base_size = 14)
+theme_okpi(
+  base_size = 14,
+  base_family = "Roboto Condensed",
+  base_line_size = 0.5,
+  base_rect_size = 0.5
+)
 }
 \arguments{
+\item{base_size}{The base font size to use; 14 is the default.}
+
 \item{base_family}{The font family to use; Roboto Condensed is the default.}
 
-\item{base_size}{The base font size to use; 14 is the default.}
+\item{base_line_size}{The base line size to use; 0.5 is the default.}
+
+\item{base_rect_size}{The base rect size to use; 0.5 is the default.}
 }
 \description{
 \code{theme_okpi} provides a \link{ggplot2} theme formatted according to the
-Oklahoma Policy Institute style guide for web, with sensible defaults.
+Oklahoma Policy Institute style guide for web, with sensible defaults,
+and also inclusdes the OKPI fill and color scales.
 }

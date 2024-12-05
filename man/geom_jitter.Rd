@@ -14,5 +14,5 @@ geom_jitter(mapping = NULL, size = 3, ...)
 \item{...}{other arguments passed to \code{geom_jitter()}}
 }
 \description{
-Submit \code{?ggplot2::geom_jitter} to see the full documentation for \code{geom_jitter()}
+#' Submit \code{?ggplot2::geom_jitter} to see the full documentation for \code{geom_jitter()}
 }

@@ -14,5 +14,5 @@ geom_bar(mapping = NULL, width = 0.7, ...)
 \item{...}{other arguments passed to \code{geom_bar()}}
 }
 \description{
-Submit \code{?ggplot2::geom_line} to see the full documentation for \code{geom_bar()}
+#' #' Submit \code{?ggplot2::geom_bar} to see the full documentation for \code{geom_bar()}
 }

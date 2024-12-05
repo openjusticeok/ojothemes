@@ -14,18 +14,9 @@
                               dpi = 72)
   }
 
-  # check ggplot2 version
-  if (unlist(utils::packageVersion("ggplot2"))[1] < 3) {
-    packageStartupMessage(
-      "Warning: ojothemes requires ggplot2 version 3.0.0 or higher."
-    )
-  }
-
-  # check that ggplot2 is already loaded
-  if (!"ggplot2" %in% (.packages())) {
-    packageStartupMessage(
-      "Warning: ggplot2 needs to be loaded before ojothemes is loaded. Consider restarting your R session."
-    )
-  }
+  # Set up showtext
+  sysfonts::font_add_google("Roboto Mono")
+  sysfonts::font_add_google("Roboto Condensed")
+  showtext::showtext_auto()
 
 }

@@ -4,12 +4,12 @@
 \alias{geom_line}
 \title{geom_line in the Open Justice Oklahoma style}
 \usage{
-geom_line(mapping = NULL, size = 1, ...)
+geom_line(mapping = NULL, linewidth = 1.5, ...)
 }
 \arguments{
 \item{mapping}{mapping from ggplot2}
 
-\item{size}{line size}
+\item{linewidth}{line size}
 
 \item{...}{other arguments passed to \code{geom_line()}}
 }
