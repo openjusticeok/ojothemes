@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   ojothemes-vignette: ojothemes-vignette.html
-last_built: 2024-12-05T19:34Z
+last_built: 2024-12-05T19:48Z
 urls:
   reference: https://openjusticeok.github.io/ojothemes/reference
   article: https://openjusticeok.github.io/ojothemes/articles
