@@ -1,12 +1,13 @@
 # ojothemes
 
-## Functions to write:
+This package contains OK Policy branded themes for `{ggplot2}` plots and `{gt}` tables. There are currently three different looks available: 
 
-* Complete themes:
-  * theme_ojo()
-  * theme_okpi()
-  * theme_tok()
-* Scales:
-  * scale_fill_ojo()
-  * scale_color_ojo()
-  * 
+- `"okpi"` is our default OK Policy branding,
+- `"ojo"` is for the defunct Open Justice Oklahoma branding, and
+- `"tok"` is for the Together Oklahoma theme.
+
+## {ggplot2}
+
+
+
+## {gt}
