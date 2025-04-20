@@ -1,7 +1,7 @@
 Package: ojothemes
 Title: OJO, OKPI, and TOK themes for ggplot2 and gt
-Version: 1.0.0
-Authors@R: 
+Version: 1.1.0
+Authors@R:
     c(
   person(
     given = "Andrew",
@@ -13,6 +13,12 @@ Authors@R:
     given = "Anthony",
     family = "Flores",
     email = "aflores@okpolicy.com",
+    role = "aut"
+  ),
+  person(
+    given = "Brancen",
+    family = "Gregory",
+    email = "brancengregory@gmail.com",
     role = "aut"
   ))
 Description: This package contains themes for ggplot2 plots and gt tables that follow the styles of OJO / OKPI / TOK.
@@ -29,6 +35,7 @@ Imports:
     lifecycle,
     rlang,
     showtext,
+    snakecase,
     stringr,
     sysfonts,
     tidyselect
