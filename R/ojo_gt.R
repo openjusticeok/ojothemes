@@ -37,7 +37,7 @@ gt_base <- function(data,
       column_labels.font.size = gt::px(font_size)
     ) |>
     gt::tab_spanner(
-      label = stringr::str_to_title(colnames(data))
+      label = snakecase::to_title_case(colnames(data))
     ) |>
     gt::tab_options(
       column_labels.font.size = "medium",
