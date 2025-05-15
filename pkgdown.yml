@@ -1,9 +1,9 @@
 pandoc: 3.1.11
-pkgdown: 2.1.1
+pkgdown: 2.1.2
 pkgdown_sha: ~
 articles:
   ojothemes-vignette: ojothemes-vignette.html
-last_built: 2025-04-20T07:27Z
+last_built: 2025-05-15T16:39Z
 urls:
   reference: https://openjusticeok.github.io/ojothemes/reference
   article: https://openjusticeok.github.io/ojothemes/articles
