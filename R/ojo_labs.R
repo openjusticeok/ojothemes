@@ -102,11 +102,11 @@ ojo_gt_captions <- function (x,
   # so that it automatically decides when to display an axis label, formats
   # those to be title case, etc.
   x <- x |>
-    gt::tab_source_note(
-      source_note = ojo_source_text(source = source)
+    gt::tab_footnote(
+      ojo_source_text(source = source)
     ) |>
     gt::tab_footnote(
-      footnote = ojo_analyst_name_text(analyst_name = analyst_name)
+      ojo_analyst_name_text(analyst_name = analyst_name)
     ) |>
     gt::tab_style(
       style = gt::cell_text(align = "right"),
