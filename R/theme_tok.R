@@ -8,11 +8,38 @@
 #' @param base_size The base font size to use; 16 is the default.
 #' @param base_line_size The base line size to use; 0.5 is the default.
 #' @param base_rect_size The base rect size to use; 0.5 is the default.
+#' @param heuristics Character vector of heuristics to apply for automatic adjustments
+#' @param font_size_adjustments Optional list of font size multipliers
 #' @export
 theme_tok_base <- function(base_size = 16,
                            base_family = "Roboto Condensed",
                            base_line_size = 0.5,
-                           base_rect_size = 0.5) {
+                           base_rect_size = 0.5,
+                           heuristics = "all",
+                           font_size_adjustments = NULL) {
+
+  # Apply font size adjustments if provided
+  if (!is.null(font_size_adjustments)) {
+    axis_text_x_size <- ggplot2::rel(1.16) * ifelse("axis_text_x" %in% names(font_size_adjustments), 
+                                                     font_size_adjustments$axis_text_x, 1.0)
+    axis_text_y_size <- ggplot2::rel(1.16) * ifelse("axis_text_y" %in% names(font_size_adjustments),
+                                                     font_size_adjustments$axis_text_y, 1.0)
+    axis_title_x_size <- ggplot2::rel(1.16) * ifelse("axis_title_x" %in% names(font_size_adjustments),
+                                                      font_size_adjustments$axis_title_x, 1.0)
+    axis_title_y_size <- ggplot2::rel(1.16) * ifelse("axis_title_y" %in% names(font_size_adjustments),
+                                                      font_size_adjustments$axis_title_y, 1.0)
+    legend_text_size <- ggplot2::rel(1.16) * ifelse("legend_text" %in% names(font_size_adjustments),
+                                                     font_size_adjustments$legend_text, 1.0)
+    strip_text_size <- base_size * ifelse("strip_text" %in% names(font_size_adjustments),
+                                          font_size_adjustments$strip_text, 1.0)
+  } else {
+    axis_text_x_size <- ggplot2::rel(1.16)
+    axis_text_y_size <- ggplot2::rel(1.16)
+    axis_title_x_size <- ggplot2::rel(1.16)
+    axis_title_y_size <- ggplot2::rel(1.16)
+    legend_text_size <- ggplot2::rel(1.16)
+    strip_text_size <- base_size
+  }
 
   ggplot2::theme(
     line = ggplot2::element_line(colour = "#333333",
@@ -69,19 +96,20 @@ theme_tok_base <- function(base_size = 16,
       margin = ggplot2::margin(18, 0, 0, 0, "pt")
     ),
     legend.title = ggplot2::element_blank(),
-    legend.text = ggplot2::element_text(size = ggplot2::rel(1.16)),
+    legend.text = ggplot2::element_text(size = legend_text_size),
     legend.margin = ggplot2::margin(0, 0, 5, 0),
     axis.title = ggplot2::element_text(
-      size = ggplot2::rel(1.16),
+      size = axis_title_x_size,
       face = "bold",
       hjust = 0.5,
     ),
     axis.title.y = ggplot2::element_text(
+      size = axis_title_y_size,
       angle = 90,
       margin = ggplot2::margin(0, 12, 0, 0, "pt")
     ),
     axis.text = ggplot2::element_text(
-      size = ggplot2::rel(1.16),
+      size = axis_text_x_size,
       hjust = 0.5
     ),
     axis.line.x.bottom = ggplot2::element_line(
@@ -92,33 +120,40 @@ theme_tok_base <- function(base_size = 16,
     ),
     axis.ticks.y = ggplot2::element_blank(),
     strip.background = ggplot2::element_blank(),
-    strip.text = ggplot2::element_text(face = "bold"),
+    strip.text = ggplot2::element_text(face = "bold", size = strip_text_size),
 
     complete = TRUE
   )
 }
 
-#' A [ggplot2] theme formatted in the Oklahoma Policy Institute style
+#' A [ggplot2] theme formatted in the Together Oklahoma style
 #'
 #' \code{theme_tok} provides a [ggplot2] theme formatted according to the
-#' Oklahoma Policy Institute style guide for web, with sensible defaults,
-#' and also inclusdes the tok fill and color scales.
+#' Together Oklahoma style guide for web, with sensible defaults,
+#' and also includes the TOK fill and color scales.
 #'
 #' @md
 #' @param base_family The font family to use; Roboto Condensed is the default.
 #' @param base_size The base font size to use; 14 is the default.
 #' @param base_line_size The base line size to use; 0.5 is the default.
 #' @param base_rect_size The base rect size to use; 0.5 is the default.
+#' @param heuristics Character vector of heuristics to apply for automatic adjustments. 
+#'   Can be "all" (default), "none", or specific heuristics like "shrink_font_many_labels".
+#' @param font_size_adjustments Optional list of font size multipliers to override heuristics.
 #' @export
 theme_tok <- function(base_size = 14,
                       base_family = "Roboto Condensed",
                       base_line_size = 0.5,
-                      base_rect_size = 0.5) {
+                      base_rect_size = 0.5,
+                      heuristics = "all",
+                      font_size_adjustments = NULL) {
 
   theme_tok_base <- theme_tok_base(base_size = base_size,
                                    base_family = base_family,
                                    base_line_size = base_line_size,
-                                   base_rect_size = base_rect_size)
+                                   base_rect_size = base_rect_size,
+                                   heuristics = heuristics,
+                                   font_size_adjustments = font_size_adjustments)
 
   # Set scales to use tok palettes
   scale_color_tok <- ojothemes::scale_color_tok()

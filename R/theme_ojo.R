@@ -6,13 +6,37 @@
 #' @md
 #' @param base_family,base_size base font family and size
 #' @param base_line_size,base_rect_size base line and rectangle sizes
+#' @param heuristics Character vector of heuristics to apply for automatic adjustments
+#' @param font_size_adjustments Optional list of font size multipliers
 #' @export
 theme_ojo_base <- function(base_size = 16,
                            base_family = "Roboto Mono",
                            base_line_size = 0.5,
-                           base_rect_size = 0.5) {
+                           base_rect_size = 0.5,
+                           heuristics = "all",
+                           font_size_adjustments = NULL) {
 
   half_line <- base_size / 2L
+
+  # Apply font size adjustments if provided
+  if (!is.null(font_size_adjustments)) {
+    axis_text_x_size <- base_size * ifelse("axis_text_x" %in% names(font_size_adjustments), 
+                                           font_size_adjustments$axis_text_x, 1.0)
+    axis_text_y_size <- base_size * ifelse("axis_text_y" %in% names(font_size_adjustments),
+                                           font_size_adjustments$axis_text_y, 1.0)
+    axis_title_x_size <- base_size * ifelse("axis_title_x" %in% names(font_size_adjustments),
+                                            font_size_adjustments$axis_title_x, 1.0)
+    axis_title_y_size <- base_size * ifelse("axis_title_y" %in% names(font_size_adjustments),
+                                            font_size_adjustments$axis_title_y, 1.0)
+    strip_text_size <- base_size * 9.5 / 8.5 * ifelse("strip_text" %in% names(font_size_adjustments),
+                                                       font_size_adjustments$strip_text, 1.0)
+  } else {
+    axis_text_x_size <- base_size
+    axis_text_y_size <- base_size
+    axis_title_x_size <- base_size
+    axis_title_y_size <- base_size
+    strip_text_size <- base_size * 9.5 / 8.5
+  }
 
   ggplot2::theme(
     line = ggplot2::element_line(colour = "#000000",
@@ -63,8 +87,8 @@ theme_ojo_base <- function(base_size = 16,
                                   l = half_line),
     # axis attributes
     axis.text = ggplot2::element_text(size = base_size),
-    axis.text.x = ggplot2::element_text(vjust = 1, margin = ggplot2::margin(t = 4L)),
-    axis.text.y = ggplot2::element_text(hjust = 1),
+    axis.text.x = ggplot2::element_text(size = axis_text_x_size, vjust = 1, margin = ggplot2::margin(t = 4L)),
+    axis.text.y = ggplot2::element_text(size = axis_text_y_size, hjust = 1),
     axis.text.x.top = NULL,
     axis.text.y.right = NULL,
     axis.ticks.length.x = NULL,
@@ -76,8 +100,8 @@ theme_ojo_base <- function(base_size = 16,
 
     axis.title = ggplot2::element_text(face = "italic",
                                        size = base_size),
-    axis.title.x = ggplot2::element_text(margin = ggplot2::margin(t = 8L)),
-    axis.title.y = ggplot2::element_text(angle = 90L,
+    axis.title.x = ggplot2::element_text(size = axis_title_x_size, margin = ggplot2::margin(t = 8L)),
+    axis.title.y = ggplot2::element_text(size = axis_title_y_size, angle = 90L,
                                          margin = ggplot2::margin(r = 12L)),
     axis.title.x.top = NULL,
     axis.title.y.right = NULL,
@@ -145,7 +169,7 @@ theme_ojo_base <- function(base_size = 16,
                                              colour = NA,
                                              linewidth = 10L),
     strip.text = ggplot2::element_text(face = "bold",
-                                       size = base_size * 9.5 / 8.5,
+                                       size = strip_text_size,
                                        margin = ggplot2::margin(t = 0L, r = 0L, b = 0L, l = 0L)),
 
     strip.text.x = ggplot2::element_text(margin = ggplot2::margin(t = 4.5, b = 4.5)),
@@ -162,27 +186,35 @@ theme_ojo_base <- function(base_size = 16,
 
 }
 
-#' A [ggplot2] theme formatted in the Oklahoma Policy Institute style
+#' A [ggplot2] theme formatted in the Open Justice Oklahoma style
 #'
-#' \code{theme_okpi} provides a [ggplot2] theme formatted according to the
-#' Oklahoma Policy Institute style guide for web, with sensible defaults,
-#' and also inclusdes the OKPI fill and color scales.
+#' \code{theme_ojo} provides a [ggplot2] theme formatted according to the
+#' Open Justice Oklahoma style guide for web, with sensible defaults,
+#' and also includes the OJO fill and color scales.
 #'
 #' @md
-#' @param base_family The font family to use; Roboto Condensed is the default.
+#' @param base_family The font family to use; Roboto Mono is the default.
 #' @param base_size The base font size to use; 14 is the default.
 #' @param base_line_size The base line size to use; 0.5 is the default.
 #' @param base_rect_size The base rect size to use; 0.5 is the default.
+#' @param heuristics Character vector of heuristics to apply for automatic adjustments. 
+#'   Can be "all" (default), "none", or specific heuristics like "shrink_font_many_labels".
+#' @param font_size_adjustments Optional list of font size multipliers to override heuristics.
+#'   Should contain elements like axis_text_x, axis_text_y, etc.
 #' @export
 theme_ojo <- function(base_size = 14,
                       base_family = "Roboto Mono",
                       base_line_size = 0.5,
-                      base_rect_size = 0.5) {
+                      base_rect_size = 0.5,
+                      heuristics = "all",
+                      font_size_adjustments = NULL) {
 
   theme_ojo_base <- theme_ojo_base(base_size = base_size,
                                    base_family = base_family,
                                    base_line_size = base_line_size,
-                                   base_rect_size = base_rect_size)
+                                   base_rect_size = base_rect_size,
+                                   heuristics = heuristics,
+                                   font_size_adjustments = font_size_adjustments)
 
   # Set scales to use okpi palettes
   scale_color_ojo <- ojothemes::scale_color_ojo()
