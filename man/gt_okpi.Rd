@@ -9,7 +9,7 @@ gt_okpi(
   title = NA,
   subtitle = NA,
   font_size = 14,
-  font = "Roboto Condensed",
+  chosen_font = "Roboto Condensed",
   format_cols = TRUE,
   analyst_name = NA,
   source = NA
@@ -24,7 +24,7 @@ gt_okpi(
 
 \item{font_size}{The font size for the table. Default is 14.}
 
-\item{font}{The font family to use. Default is Roboto Condensed.}
+\item{chosen_font}{The font family to use. Default is Roboto Condensed.}
 
 \item{format_cols}{Should gt::fmt_auto() be applied to all cols?}
 

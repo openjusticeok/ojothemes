@@ -9,7 +9,7 @@ gt_ojo(
   title = NA,
   subtitle = NA,
   font_size = 14,
-  font = "Roboto Mono",
+  chosen_font = "Roboto Mono",
   format_cols = TRUE,
   analyst_name = NA,
   source = NA
@@ -24,7 +24,7 @@ gt_ojo(
 
 \item{font_size}{The font size for the table. Default is 14.}
 
-\item{font}{The font family to use. Default is Roboto mono}
+\item{chosen_font}{The font family to use. Default is Roboto mono}
 
 \item{format_cols}{Should gt::fmt_auto() be applied to all cols?}
 
