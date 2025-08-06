@@ -22,8 +22,11 @@ gt_base <- function(data,
                     analyst_name = NA, source = NA
 ){
   x <- data |>
-    dplyr::rename_with(snakecase::to_title_case) |>
     gt::gt() |>
+    gt::cols_label_with(
+      columns = dplyr::everything(),
+      fn = snakecase::to_title_case
+    ) |>
     gt::tab_options(
       heading.align = "left",
       column_labels.border.top.style = "none",
