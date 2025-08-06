@@ -1,3 +1,5 @@
+# ojothemes 1.2.0
+
 # ojothemes 1.1.1 (2025-04-20)
 
 * Actually does that...
