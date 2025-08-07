@@ -1,3 +1,5 @@
+# ojothemes 1.1.3
+
 # ojothemes 1.1.3 (2025-08-06)
 
 * Fixes a bug that prevented spanner lines from showing up in `gt_okpi()`, etc.

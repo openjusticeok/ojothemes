@@ -1,6 +1,6 @@
 Package: ojothemes
 Title: OJO, OKPI, and TOK themes for ggplot2 and gt
-Version: 1.1.2
+Version: 1.1.3
 Authors@R:
     c(
   person(
