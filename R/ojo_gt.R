@@ -150,13 +150,13 @@ gt_okpi <- function(data,
     )
     # # Format spanner headers
     # gt::tab_style(
-    #   style = list(
-    #     gt::cell_text(
-    #       font = chosen_font,
-    #       weight = "bold",
-    #       size = "larger"
-    #     )
-    #   ),
+      # style = list(
+        # gt::cell_text(
+        #   font = chosen_font,
+        #   weight = "bold",
+        #   size = "larger"
+        # )
+      # ),
     #   locations = gt::cells_column_spanners()
     # )
 

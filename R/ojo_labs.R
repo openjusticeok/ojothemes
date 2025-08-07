@@ -101,13 +101,21 @@ ojo_gt_captions <- function (x,
   # Do we want to build any more QOL stuff into this? Like we could set it up
   # so that it automatically decides when to display an axis label, formats
   # those to be title case, etc.
-  x <- x |>
-    gt::tab_footnote(
-      ojo_source_text(source = source)
-    ) |>
-    gt::tab_footnote(
-      ojo_analyst_name_text(analyst_name = analyst_name)
-    ) |>
+  if(!is.na(source)){
+    x <- x |>
+      gt::tab_footnote(
+        ojo_source_text(source = source)
+      )
+  }
+
+  if(!is.na(analyst_name)){
+    x <- x |>
+      gt::tab_footnote(
+        ojo_analyst_name_text(analyst_name = analyst_name)
+      )
+  }
+
+    x <- x |>
     gt::tab_style(
       style = gt::cell_text(align = "right"),
       locations = list(gt::cells_source_notes(), gt::cells_footnotes())
