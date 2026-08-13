@@ -14,9 +14,42 @@
                               dpi = 72)
   }
 
-  # Set up showtext
-  sysfonts::font_add_google("Roboto Mono")
-  sysfonts::font_add_google("Roboto Condensed")
-  showtext::showtext_auto()
+  # Register the bundled fonts and enable showtext
+  # No internet connection required
+  tryCatch(
+    {
+      font_dir <- system.file("fonts", package = "ojothemes")
+      registered <- 0L
+
+      if (nzchar(font_dir) && !"Roboto Mono" %in% sysfonts::font_families()) {
+        sysfonts::font_add(
+          "Roboto Mono",
+          regular = file.path(font_dir, "RobotoMono-Regular.ttf"),
+          bold = file.path(font_dir, "RobotoMono-Bold.ttf"),
+          italic = file.path(font_dir, "RobotoMono-Italic.ttf"),
+          bolditalic = file.path(font_dir, "RobotoMono-BoldItalic.ttf")
+        )
+        registered <- registered + 1L
+      }
+
+      if (nzchar(font_dir) && !"Roboto Condensed" %in% sysfonts::font_families()) {
+        sysfonts::font_add(
+          "Roboto Condensed",
+          regular = file.path(font_dir, "RobotoCondensed-Regular.ttf"),
+          bold = file.path(font_dir, "RobotoCondensed-Bold.ttf"),
+          italic = file.path(font_dir, "RobotoCondensed-Italic.ttf"),
+          bolditalic = file.path(font_dir, "RobotoCondensed-BoldItalic.ttf")
+        )
+        registered <- registered + 1L
+      }
+
+      if (registered > 0L) {
+        showtext::showtext_auto()
+      }
+    },
+    error = function(e) {
+      packageStartupMessage("Could not set up OJO fonts: ", conditionMessage(e))
+    }
+  )
 
 }
