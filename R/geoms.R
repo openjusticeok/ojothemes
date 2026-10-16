@@ -1,11 +1,11 @@
-#' @title OJO version of the ggproto GeomCol object
+#' @title OPI version of the ggproto GeomCol object
 #'
 #' @description
 #' This is a near-exact copy of the default ggplot2 GeomCol ggproto object.
 #' The only difference is that I've adjusted it to make the default column width smaller.
 #' This ensures that it looks right no matter what the scale of the data you're using.
-GeomColOJO <- ggplot2::ggproto(
-  "GeomCol",
+GeomColOPI <- ggplot2::ggproto(
+  "GeomColOPI",
   ggplot2::GeomRect,
   required_aes = c("x", "y"),
 
@@ -54,7 +54,7 @@ geom_col <- function(mapping = NULL, data = NULL,
     data = data,
     mapping = mapping,
     stat = "identity",
-    geom = GeomColOJO, # Use OJO version of the ggproto object instead
+    geom = GeomColOPI, # Use OPI version of the ggproto object instead
     position = position,
     show.legend = show.legend,
     inherit.aes = inherit.aes,

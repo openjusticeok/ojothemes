@@ -2,11 +2,11 @@
 % Please edit documentation in R/theme_tok.R
 \name{theme_tok}
 \alias{theme_tok}
-\title{A \link{ggplot2} theme formatted in the Oklahoma Policy Institute style}
+\title{A \link[ggplot2:ggplot2]{ggplot2} theme formatted in the TOK style}
 \usage{
 theme_tok(
   base_size = 14,
-  base_family = "Roboto Condensed",
+  base_family = .ojo_font_tok,
   base_line_size = 0.5,
   base_rect_size = 0.5
 )
@@ -14,14 +14,24 @@ theme_tok(
 \arguments{
 \item{base_size}{The base font size to use; 14 is the default.}
 
-\item{base_family}{The font family to use; Roboto Condensed is the default.}
+\item{base_family}{The font family to use; Source Sans 3 (bundled) is the default.}
 
 \item{base_line_size}{The base line size to use; 0.5 is the default.}
 
 \item{base_rect_size}{The base rect size to use; 0.5 is the default.}
 }
 \description{
-\code{theme_tok} provides a \link{ggplot2} theme formatted according to the
-Oklahoma Policy Institute style guide for web, with sensible defaults,
-and also inclusdes the tok fill and color scales.
+\code{theme_tok} provides a \link[ggplot2:ggplot2]{ggplot2} theme formatted according to the
+Together Oklahoma style guide for web, with sensible defaults,
+and also includes the TOK fill and color scales.
+}
+\examples{
+library(ggplot2)
+ggplot(mpg, aes(x = displ, y = hwy, colour = factor(cyl))) +
+  geom_point() +
+  ojo_labs(
+    title = "Together Oklahoma",
+    subtitle = "House-style plotting with ojothemes"
+  ) +
+  theme_tok()
 }

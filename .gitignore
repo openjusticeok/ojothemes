@@ -37,7 +37,26 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
-=======
-.Rproj.user
-docs
+
+# pkgdown build output
+docs/
 inst/doc
+
+# SSL certs
+ssl/
+ssl
+
+# Environment files
+.env
+
+# direnv local cache
+.direnv/
+
+# Jujutsu VCS
+.jj/
+
+# README render byproduct
+README.html
+
+# nix build output
+result

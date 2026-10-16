@@ -2,10 +2,10 @@
 % Please edit documentation in R/ojo_set_theme.R
 \name{ojo_set_theme}
 \alias{ojo_set_theme}
-\title{Use Oklahoma Policy Institute \link{ggplot2} themes}
+\title{Use Oklahoma Policy Institute \link[ggplot2:ggplot2]{ggplot2} themes}
 \usage{
 ojo_set_theme(
-  theme = "okpi",
+  theme = "opi",
   base_size = 18,
   base_line_size = 0.5,
   base_rect_size = 0.5,
@@ -13,7 +13,7 @@ ojo_set_theme(
 )
 }
 \arguments{
-\item{theme}{The theme you wish to use. Options are "okpi", "ojo", or "tok".}
+\item{theme}{The theme you wish to use. Options are "opi" or "tok".}
 
 \item{base_size}{The base font size for the theme. All fonts are relative to
 this value.}
@@ -27,6 +27,6 @@ relative to this value.}
 \item{scale}{For \code{theme_ojo_map()}. Should the legend theme be continuous or discrete?}
 }
 \description{
-\code{ojo_set_theme} provides a \link{ggplot2} theme formatted according to the
+\code{ojo_set_theme} provides a \link[ggplot2:ggplot2]{ggplot2} theme formatted according to the
 Oklahoma Policy Institute style guide, with sensible defaults.
 }

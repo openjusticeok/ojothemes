@@ -36,7 +36,5 @@ A gt table based on the input data frame with specified modifications.
 gt_base Function
 }
 \examples{
-\dontrun{
 gt_base(data = mtcars, title = "Motor Trend Car Road Tests", subtitle = "From mtcars")
-}
 }

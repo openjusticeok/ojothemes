@@ -3,7 +3,7 @@
 #' \code{ojo_set_theme} provides a [ggplot2] theme formatted according to the
 #' Oklahoma Policy Institute style guide, with sensible defaults.
 #'
-#' @param theme The theme you wish to use. Options are "okpi", "ojo", or "tok".
+#' @param theme The theme you wish to use. Options are "opi" or "tok".
 #' @param base_size The base font size for the theme. All fonts are relative to
 #' this value.
 #' @param base_line_size The base line size for the theme. All line sizes are
@@ -11,45 +11,35 @@
 #' @param base_rect_size The base rect size for the theme. All rect sizes are
 #' relative to this value.
 #' @param scale For `theme_ojo_map()`. Should the legend theme be continuous or discrete?
-#'
 #' @md
 #' @export
-ojo_set_theme <- function(theme = "okpi",
+ojo_set_theme <- function(theme = "opi",
                           base_size = 18,
                           base_line_size = 0.5,
                           base_rect_size = 0.5,
                           scale = "continuous") {
 
-  list_themes <- c("okpi", "ojo", "tok")
+  list_themes <- c("opi", "tok")
   rlang::arg_match(theme, list_themes)
 
-  if(theme == "okpi"){
-    ggplot2::theme_set(theme_okpi_base(base_size = base_size,
-                                       base_line_size = base_line_size,
-                                       base_rect_size = base_rect_size))
-
-    base_family <- "Roboto Condensed"
-    default_color <- ojothemes::okpi_blue
-    default_palette <- ojothemes::palette_okpi_main
-
-  } else if (theme == "ojo") {
-    ggplot2::theme_set(theme_ojo_base(base_size = base_size,
+  if (theme == "opi") {
+    ggplot2::set_theme(theme_opi_base(base_size = base_size,
                                       base_line_size = base_line_size,
                                       base_rect_size = base_rect_size))
 
-    base_family <- "Roboto Mono"
-    default_color <- "black"
-    default_palette <- ojothemes::palette_ojo_main
+    base_family <- .ojo_font_opi
+    default_color <- opi_blue
+    default_palette <- palette_opi_main
 
   } else if (theme == "tok") {
-    ggplot2::theme_set(theme_tok_base(base_size = base_size,
-                                      base_family = "Roboto Condensed",
+    ggplot2::set_theme(theme_tok_base(base_size = base_size,
+                                      base_family = .ojo_font_tok,
                                       base_line_size = base_line_size,
                                       base_rect_size = base_rect_size))
 
-    base_family <- "Roboto Condensed"
-    default_color <- ojothemes::tok_blue
-    default_palette <- ojothemes::palette_okpi_main
+    base_family <- .ojo_font_tok
+    default_color <- tok_blue
+    default_palette <- palette_opi_main
 
   }
 
@@ -70,8 +60,8 @@ ojo_set_theme <- function(theme = "okpi",
 
   # set default colors for monochromatic geoms ------------------------------
   ggplot2::update_geom_defaults("bar", list(fill = default_color))
-  # Update the default color for the OJO version of geom_col()
-  ggplot2::update_geom_defaults("colOJO", list(fill = default_color))
+  # Update the default color for the OPI version of geom_col()
+  ggplot2::update_geom_defaults("colOPI", list(fill = default_color))
   ggplot2::update_geom_defaults("point", list(colour = default_color))
   ggplot2::update_geom_defaults("line", list(colour = default_color))
   ggplot2::update_geom_defaults("step", list(colour = default_color))

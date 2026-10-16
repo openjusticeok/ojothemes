@@ -4,9 +4,9 @@
 \name{ojothemes-package}
 \alias{ojothemes}
 \alias{ojothemes-package}
-\title{ojothemes: OJO, OKPI, and TOK themes for ggplot2 and gt}
+\title{ojothemes: OPI and TOK Themes for ggplot2 and gt}
 \description{
-This package contains themes for ggplot2 plots and gt tables that follow the styles of OJO / OKPI / TOK.
+This package contains themes for ggplot2 plots and gt tables that follow the styles of OPI / TOK.
 }
 \seealso{
 Useful links:
@@ -20,6 +20,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Andrew Bell \email{abell@okpolicy.com}
   \item Anthony Flores \email{aflores@okpolicy.com}
   \item Brancen Gregory \email{brancengregory@gmail.com}
 }

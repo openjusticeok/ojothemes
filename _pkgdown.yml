@@ -2,3 +2,45 @@ url: https://openjusticeok.github.io/ojothemes/
 template:
   bootstrap: 5
 
+figures:
+  dev: ragg::agg_png
+  dpi: 144
+  fig.width: 7
+  fig.height: 4.5
+
+reference:
+- title: Themes
+  desc: ggplot2 themes for the OPI and TOK house styles
+  contents:
+  - theme_opi
+  - theme_opi_base
+  - theme_tok
+  - theme_tok_base
+  - ojo_set_theme
+- title: Scales and colors
+  contents:
+  - starts_with("scale_color_")
+  - starts_with("scale_fill_")
+  - starts_with("palette_opi")
+  - starts_with("opi_")
+  - palette_tok_main
+  - tok_blue
+- title: Geoms
+  contents:
+  - geom_col
+  - starts_with("geom_")
+  - GeomColOPI
+- title: Tables
+  contents:
+  - gt_base
+  - gt_opi
+  - ojo_gt_captions
+  - ojo_labs
+  - ojo_make_caption
+  - ojo_analyst_name_text
+  - ojo_source_text
+- title: Fonts and export
+  contents:
+  - ojo_fonts
+  - ojo_save_png
+  - ojo_save_svg

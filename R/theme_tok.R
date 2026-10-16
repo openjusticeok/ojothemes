@@ -4,24 +4,24 @@
 #' Together Oklahoma style guide for web, with sensible defaults.
 #'
 #' @md
-#' @param base_family The font family to use; Roboto Condensed is the default.
+#' @param base_family The font family to use; Source Sans 3 (bundled) is the default.
 #' @param base_size The base font size to use; 16 is the default.
 #' @param base_line_size The base line size to use; 0.5 is the default.
 #' @param base_rect_size The base rect size to use; 0.5 is the default.
 #' @export
 theme_tok_base <- function(base_size = 16,
-                           base_family = "Roboto Condensed",
+                           base_family = .ojo_font_tok,
                            base_line_size = 0.5,
                            base_rect_size = 0.5) {
 
   ggplot2::theme(
     line = ggplot2::element_line(colour = "#333333",
-                                 size = base_line_size,
+                                 linewidth = base_line_size,
                                  linetype = 1L,
                                  lineend = "butt"),
     rect = ggplot2::element_rect(fill = "#ffffff",
                                  colour = NA,
-                                 size = base_rect_size,
+                                 linewidth = base_rect_size,
                                  linetype = 1L),
     text = ggplot2::element_text(family = base_family,
                                  face = "plain",
@@ -32,7 +32,7 @@ theme_tok_base <- function(base_size = 16,
                                  margin = ggplot2::margin(),
                                  debug = FALSE),
     panel.background = ggplot2::element_rect(fill = colorspace::lighten(tok_blue, amount = 0.75)),
-    plot.background = ggplot2::element_blank(),
+    plot.background = ggplot2::element_rect(fill = "#ffffff", colour = NA),
     legend.background = ggplot2::element_rect(fill = "transparent", colour = NA),
     legend.key = ggplot2::element_rect(fill = "transparent", colour = NA),
     legend.position = "bottom",
@@ -43,7 +43,7 @@ theme_tok_base <- function(base_size = 16,
     panel.grid.minor.y = ggplot2::element_blank(),
     panel.spacing = grid::unit(6, "pt"),
     plot.title = ggplot2::element_text(
-      size = ggplot2::rel(2),
+      size = ggplot2::rel(1.75),
       face = "bold",
       hjust = 0,
       color = tok_blue,
@@ -52,27 +52,27 @@ theme_tok_base <- function(base_size = 16,
     ),
     plot.title.position = "plot",
     plot.subtitle = ggplot2::element_text(
-      size = ggplot2::rel(1.66),
+      size = ggplot2::rel(1.2),
       face = "bold.italic",
       hjust = 0,
-      color = ojothemes::palette_tok_main[3],
-      family = "Roboto Condensed",
+      color = palette_tok_main[3],
+      family = base_family,
       lineheight = 0.7,
       margin = ggplot2::margin(0, 0, 18, 0, "pt")
     ),
     plot.caption.position = "plot",
     plot.caption = ggplot2::element_text(
-      size = ggplot2::rel(1.2),
+      size = ggplot2::rel(1),
       lineheight = 0.75,
       face = "italic",
       hjust = 1,
       margin = ggplot2::margin(18, 0, 0, 0, "pt")
     ),
     legend.title = ggplot2::element_blank(),
-    legend.text = ggplot2::element_text(size = ggplot2::rel(1.16)),
+    legend.text = ggplot2::element_text(size = ggplot2::rel(1)),
     legend.margin = ggplot2::margin(0, 0, 5, 0),
     axis.title = ggplot2::element_text(
-      size = ggplot2::rel(1.16),
+      size = ggplot2::rel(1),
       face = "bold",
       hjust = 0.5,
     ),
@@ -81,7 +81,7 @@ theme_tok_base <- function(base_size = 16,
       margin = ggplot2::margin(0, 12, 0, 0, "pt")
     ),
     axis.text = ggplot2::element_text(
-      size = ggplot2::rel(1.16),
+      size = ggplot2::rel(1),
       hjust = 0.5
     ),
     axis.line.x.bottom = ggplot2::element_line(
@@ -98,20 +98,30 @@ theme_tok_base <- function(base_size = 16,
   )
 }
 
-#' A [ggplot2] theme formatted in the Oklahoma Policy Institute style
+#' A [ggplot2] theme formatted in the TOK style
 #'
 #' \code{theme_tok} provides a [ggplot2] theme formatted according to the
-#' Oklahoma Policy Institute style guide for web, with sensible defaults,
-#' and also inclusdes the tok fill and color scales.
+#' Together Oklahoma style guide for web, with sensible defaults,
+#' and also includes the TOK fill and color scales.
 #'
 #' @md
-#' @param base_family The font family to use; Roboto Condensed is the default.
+#' @param base_family The font family to use; Source Sans 3 (bundled) is the default.
 #' @param base_size The base font size to use; 14 is the default.
 #' @param base_line_size The base line size to use; 0.5 is the default.
 #' @param base_rect_size The base rect size to use; 0.5 is the default.
+#' @examples
+#' library(ggplot2)
+#' ggplot(mpg, aes(x = displ, y = hwy, colour = factor(cyl))) +
+#'   geom_point() +
+#'   ojo_labs(
+#'     title = "Together Oklahoma",
+#'     subtitle = "House-style plotting with ojothemes"
+#'   ) +
+#'   theme_tok()
+
 #' @export
 theme_tok <- function(base_size = 14,
-                      base_family = "Roboto Condensed",
+                      base_family = .ojo_font_tok,
                       base_line_size = 0.5,
                       base_rect_size = 0.5) {
 
@@ -121,8 +131,8 @@ theme_tok <- function(base_size = 14,
                                    base_rect_size = base_rect_size)
 
   # Set scales to use tok palettes
-  scale_color_tok <- ojothemes::scale_color_tok()
-  scale_fill_tok <- ojothemes::scale_fill_tok()
+  scale_color_tok <- scale_color_tok()
+  scale_fill_tok <- scale_fill_tok()
 
   # Wrap everything together so that the scales are also applied w/ the theme
   list(

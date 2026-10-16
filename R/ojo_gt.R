@@ -10,9 +10,7 @@
 #'
 #' @return A gt table based on the input data frame with specified modifications.
 #' @examples
-#' \dontrun{
 #' gt_base(data = mtcars, title = "Motor Trend Car Road Tests", subtitle = "From mtcars")
-#' }
 #' @export
 #'
 gt_base <- function(data,
@@ -97,46 +95,44 @@ gt_base <- function(data,
   return(x)
 }
 
-#' gt_okpi Function
+#' gt_opi Function
 #'
 #' @param data A data frame to be converted into a gt table.
 #' @param title Optional. A title for the table. Default is NA.
 #' @param subtitle Optional. A subtitle for the table. Default is NA.
 #' @param font_size The font size for the table. Default is 14.
-#' @param chosen_font The font family to use. Default is Roboto Condensed.
+#' @param chosen_font The font family to use. Default is Source Sans 3 (bundled).
 #' @param format_cols Should gt::fmt_auto() be applied to all cols?
 #' @param analyst_name The name of the analyst to credit in the footnote
 #' @param source The source / domain of the data
 #'
 #' @return A gt table based on the input data frame with specified modifications.
 #' @examples
-#' \dontrun{
-#' okpi_gt(data = mtcars, title = "Motor Trend Car Road Tests", subtitle = "From mtcars")
-#' }
+#' gt_opi(data = mtcars, title = "Motor Trend Car Road Tests", subtitle = "From mtcars")
 #' @export
-gt_okpi <- function(data,
-                    title = NA, subtitle = NA,
-                    font_size = 14,
-                    chosen_font = "Roboto Condensed",
-                    format_cols = TRUE,
-                    analyst_name = NA, source = NA){
+gt_opi <- function(data,
+                   title = NA, subtitle = NA,
+                   font_size = 14,
+                   chosen_font = "Source Sans 3",
+                   format_cols = TRUE,
+                   analyst_name = NA, source = NA){
 
   x <- data |>
-    ojothemes::gt_base(title = title,
-                       subtitle = subtitle,
-                       font_size = font_size,
-                       format_cols = format_cols,
-                       analyst_name = analyst_name,
-                       source = source) |>
+    gt_base(title = title,
+            subtitle = subtitle,
+            font_size = font_size,
+            format_cols = format_cols,
+            analyst_name = analyst_name,
+            source = source) |>
     gt::opt_table_font(
       font = chosen_font
     ) |>
     # Format title
     gt::tab_style(
       style = list(
-        gt::cell_text(color = ojothemes::okpi_red),
+        gt::cell_text(color = opi_red),
         gt::css(padding.left = "10px",
-                border.left = paste0("10px solid ", okpi_red, ";"))
+                border.left = paste0("10px solid ", opi_red, ";"))
       ),
       locations = gt::cells_title(groups = "title")
     ) |>
@@ -144,72 +140,8 @@ gt_okpi <- function(data,
     gt::tab_style(
       style = list(
         gt::css(padding.left = "10px",
-                border.left = paste0("10px solid ", okpi_red, ";"))
-        ),
-      locations = gt::cells_title(groups = "subtitle")
-    )
-    # # Format spanner headers
-    # gt::tab_style(
-      # style = list(
-        # gt::cell_text(
-        #   font = chosen_font,
-        #   weight = "bold",
-        #   size = "larger"
-        # )
-      # ),
-    #   locations = gt::cells_column_spanners()
-    # )
-
-  return(x)
-}
-
-#' gt_ojo Function
-#'
-#' @param data A data frame to be converted into a gt table.
-#' @param title Optional. A title for the table. Default is NA.
-#' @param subtitle Optional. A subtitle for the table. Default is NA.
-#' @param font_size The font size for the table. Default is 14.
-#' @param chosen_font The font family to use. Default is Roboto mono
-#' @param format_cols Should gt::fmt_auto() be applied to all cols?
-#' @param analyst_name The name of the analyst to credit in the footnote
-#' @param source The source / domain of the data
-#'
-#' @return A gt table based on the input data frame with specified modifications.
-#' @examples
-#' \dontrun{
-#' okpi_gt(data = mtcars, title = "Motor Trend Car Road Tests", subtitle = "From mtcars")
-#' }
-#' @export
-gt_ojo <- function(data,
-                   title = NA, subtitle = NA,
-                   font_size = 14,
-                   chosen_font = "Roboto Mono",
-                   format_cols = TRUE,
-                   analyst_name = NA, source = NA
-) {
-
-  x <- data |>
-    ojothemes::gt_base(title = title,
-                       subtitle = subtitle,
-                       font_size = font_size,
-                       format_cols = format_cols,
-                       analyst_name = analyst_name,
-                       source = source) |>
-    gt::opt_table_font(
-      font = chosen_font
-    ) |>
-    gt::tab_style(
-      style = list(
-        gt::css(padding.left = "10px",
-                border.left = paste0("10px solid ", okpi_yellow, ";"))
+                border.left = paste0("10px solid ", opi_red, ";"))
       ),
-      locations = gt::cells_title(groups = "title")
-    ) |>
-    gt::tab_style(
-      style = list(
-        gt::css(padding.left = "10px",
-                border.left = paste0("10px solid ", okpi_yellow, ";"))
-        ),
       locations = gt::cells_title(groups = "subtitle")
     )
 

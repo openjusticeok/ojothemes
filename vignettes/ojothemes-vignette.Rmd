@@ -2,7 +2,7 @@
 title: "ojoThemes Guide"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{ojothemes-vignette}
+  %\VignetteIndexEntry{ojoThemes Guide}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -12,9 +12,14 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+if (requireNamespace("ragg", quietly = TRUE)) {
+  # Render figures through ragg so bundled fonts resolve identically on
+  # every platform.
+  knitr::opts_chunk$set(dev = "ragg_png")
+}
 ```
 
-This guide will walk you through the themes and tools available in the `ojoThemes` package. We'll start by loading the package (plus `tidyverse` and `ojodb` for some test data), then we'll make some example graphs and tables to show you what's available.
+This guide will walk you through the themes and tools available in the `ojothemes` package. We'll start by loading the package (plus `ojodb` for some test data), then we'll make some example graphs and tables to show you what's available.
 
 ```{r setup}
 library(ojothemes)
@@ -35,6 +40,7 @@ data <- ojo_tbl(
   ) |>
   ojo_collect()
 ```
+
 ## Themes for `ggplot` graphs
 
 First, let's see how this data looks on a default ggplot:
@@ -48,12 +54,15 @@ p1 <- data |>
     race
   ) |>
   ggplot(aes(x = book_month, y = n, fill = race)) +
-  geom_col()
+  geom_col() +
+  # When a legend has many categories, wrap it in rows so it doesn't
+  # overflow the plot
+  guides(fill = guide_legend(nrow = 3))
 
 p1
 ```
 
-Next, let's gussy this up with our `ojoThemes` tools. First, let's use the `ojothemes::ojo_labs()` function to easily add a nice caption to the plot:
+Next, let's gussy this up with our `ojothemes` tools. First, let's use the `ojothemes::ojo_labs()` function to easily add a nice caption to the plot:
 
 ```{r ojo_labs}
 p1 <- p1 +
@@ -73,30 +82,30 @@ This is just a wrapper for the normal `ggplot2::labs()` function, so we can pass
 
   * Right now, you can use `"oscn"`, `"ocdc"`, or `"ppb"` as the `source` argument to get a pre-written, consistent source note. However, if you're working with something not in one of those domains, you can just tell it something to put in there verbatim, e.g. `source = "Source: Data Pulled from The National Insitute of My Ass database"`.
 
-Next, let's actually apply our themes. There are two ways to do this: the first is to just throw `+ theme_okpi()` onto our ggplot, like so:
+Next, let's actually apply our themes. There are two ways to do this: the first is to just throw `+ theme_opi()` onto our ggplot, like so:
 
-```{r plus_theme_okpi}
-p1 + theme_okpi()
+```{r plus_theme_opi}
+p1 + theme_opi()
 ```
 
-This applies not just the theme / fonts, but the color / fill scales as well. If you want just the theme without the scales, you can do `p1 + theme_okpi_base()`.
+This applies not just the theme / fonts, but the color / fill scales as well. If you want just the theme without the scales, you can do `p1 + theme_opi_base()`.
 
-The second way of applying a theme is by using `ojothemes::ojo_set_theme()`. This is probably going to be the most common way of doing things, since we're rarely going to want to use multiple themes in the same script / document / etc. Let's try that same graph in the "ojo" theme this time:
+The second way of applying a theme is by using `ojothemes::ojo_set_theme()`. This is probably going to be the most common way of doing things, since we're rarely going to want to use multiple themes in the same script / document / etc. Let's try that same graph in the "tok" theme this time:
 
-```{r set_theme_okpi}
-ojo_set_theme(theme = "ojo")
+```{r set_theme_tok}
+ojo_set_theme(theme = "tok")
 
 p1
 ```
 
 ## Themes for `gt` tables
 
-This package also has built in themes for tables made with `gt`. You can use these by replacing the normal `gt()` function with one of our themed wrappers (currently `gt_okpi()` and `gt_ojo()`). These have built in arguments for customization:
+This package also has built in themes for tables made with `gt`. You can use these by replacing the normal `gt()` function with our themed wrapper `gt_opi()`. It has built in arguments for customization:
 
   * `source` and `analyst_name` (which work just like the `ojo_labs()` function for ggplots)
   * `title` and `subtitle` (self explanatory)
   * `format_cols` (a logical that will apply the auto-styling from `gt` to every column if `TRUE`)
-  * `font` and `font_size` for making really big / small tables.
+  * `font_size` for making really big / small tables.
 
 Here's what a normal, unstyled table looks like...
 
@@ -106,12 +115,12 @@ data |>
   gt()
 ```
 
-...here's what our `gt_okpi()` theme does to it...
+...and here's what our `gt_opi()` theme does to it...
 
-```{r gt_okpi}
+```{r gt_opi}
 data |>
   count(race) |>
-  gt_okpi(
+  gt_opi(
     title = "OCDC Bookings by Race",
     subtitle = "January 2024 - October 2024",
     source = "ocdc",
@@ -120,16 +129,76 @@ data |>
   )
 ```
 
-...and finally, here's `gt_ojo()`:
+## Fonts
 
-```{r gt_ojo}
-data |>
-  count(race) |>
-  gt_ojo(
-    title = "OCDC Bookings by Race",
-    subtitle = "January 2024 - October 2024",
-    source = "ocdc",
-    analyst_name = "Andrew Bell",
-    format_cols = TRUE
-  )
+`ojothemes` takes care of fonts for you. **Source Sans 3** ships inside the
+package and is registered with `systemfonts` at load time — no font
+installation, admin rights, or network access is ever needed. Every theme
+defaults to it, so plots render pixel-identically on Windows, macOS, and
+Linux.
+
+To see where each font known to ojothemes resolves from on your machine,
+run:
+
+```{r ojo_fonts}
+ojo_fonts()
 ```
+
+The `source` column tells you where each family comes from:
+
+  * `bundled` — shipped inside the package; always available, identical on every machine
+  * `local` — found in a `fonts/` folder in your project (or `~/fonts`)
+  * `fetched` — downloaded and cached by `systemfonts` on first use
+  * `system` — installed on the operating system
+  * `missing` — not found; plots using it will fall back to a default font
+
+### Using proprietary fonts (e.g. Adobe Myriad Pro)
+
+Fonts that can't be redistributed (like Myriad Pro) can't be bundled in the
+package, but they still work through the same machinery: copy your licensed
+`.otf`/`.ttf` files into a `fonts/` folder in your project and `systemfonts`
+will pick them up automatically — no OS installation needed. Check
+`ojo_fonts()` afterwards; `Myriad Pro` should show `local`.
+
+```{r, eval = FALSE}
+# e.g. fonts/Myriad Pro Regular.ttf, Myriad Pro Bold.ttf, ...
+ojo_fonts()
+```
+
+Note that Source Sans 3 (bundled, and free to redistribute) is drawn in the
+same Adobe type program as Myriad and is nearly glyph-identical, running
+about 3-5% optically smaller at the same point size. For fully
+self-contained, reproducible work, prefer Source Sans 3 unless the brand
+requires Myriad Pro.
+
+## Exporting plots
+
+Use `ojo_save_png()` and `ojo_save_svg()` to export plots. They always
+render through `ragg` / `svglite` (so bundled fonts resolve identically on
+every platform) and accept dimensions in any unit, so specs from the
+communications team can be passed verbatim:
+
+```{r, eval = FALSE}
+# inches (physical)
+ojo_save_png(p1, "bookings.png", width = 7, height = 5, unit = "in")
+
+# pixels, dpi-relative (here: 1080 px at 144 dpi = 7.5 in)
+ojo_save_png(p1, "bookings.png", width = 1080, height = 675, unit = "px", dpi = 144)
+
+# points, absolute physical units (1 pt = 1/72 in)
+ojo_save_png(p1, "bookings.png", width = 504, height = 360, unit = "pt")
+
+# millimeters, and SVG (vector; resolution-independent)
+ojo_save_png(p1, "bookings.png", width = 178, height = 127, unit = "mm")
+ojo_save_svg(p1, "bookings.svg", width = 178, height = 127, unit = "mm")
+```
+
+Notes:
+
+  * `unit = "px"` without `dpi` defaults to 72 dpi (the graphics device
+    convention: 1 px = 1/72 in). If a pixel spec was authored for a
+    different resolution, pass it explicitly.
+  * String dpi aliases like `"retina"` are rejected on purpose — pass the
+    explicit number the spec was authored for.
+  * Export always uses ragg/svglite (never the base devices), so the same
+    command produces pixel-identical output on Windows, macOS, and Linux.

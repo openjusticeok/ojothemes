@@ -54,9 +54,21 @@ ojo_make_caption <- function(analyst_name = NA,
   source_text <- ojo_source_text(source = source)
   analyst_name_text <- ojo_analyst_name_text(analyst_name = analyst_name)
 
-  caption <- paste0(source_text,
-                    dplyr::if_else(!is.na(analyst_name) & !is.na(source), "\n", ""), # Add a newline if both are not NA
-                    analyst_name_text)
+  # ggplot2 never wraps captions, so long ones run off the edge of the
+  # plot. Wrap at a width that fits the caption font on a typical canvas
+  # (~7 in wide at the default theme text size). Wrap each segment on its
+  # own so the source and analyst credit stay on separate lines.
+  wrap_segment <- function(x) {
+    if (is.na(x) || !nzchar(x)) {
+      return(character(0))
+    }
+    strwrap(x, width = 65)
+  }
+
+  caption <- paste(
+    c(wrap_segment(source_text), wrap_segment(analyst_name_text)),
+    collapse = "\n"
+  )
 
   return(caption)
 }

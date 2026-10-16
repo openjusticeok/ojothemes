@@ -1,0 +1,10 @@
+[lint]
+extend-select = ["DPLYR", "TESTTHAT"]
+default-exclude = true
+fix-roxygen = true
+
+[lint.assignment]
+operator = "<-"
+
+[lint.quotes]
+quote = "double"

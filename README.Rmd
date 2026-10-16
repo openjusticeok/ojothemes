@@ -9,48 +9,68 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "100%",
+  dpi = 150
 )
+if (requireNamespace("ragg", quietly = TRUE)) {
+  knitr::opts_chunk$set(dev = "ragg_png")
+}
 ```
 
 # ojothemes
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![CRAN status](https://www.r-pkg.org/badges/version/ojothemes)](https://CRAN.R-project.org/package=ojothemes)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![pkgdown](https://img.shields.io/badge/pkgdown-site-blue.svg)](https://openjusticeok.github.io/ojothemes/)
 <!-- badges: end -->
 
-The goal of ojothemes is to ...
+`ojothemes` contains [ggplot2](https://ggplot2.tidyverse.org/) and [gt](https://gt.rstudio.com/) themes for the Oklahoma Policy Institute (OPI) and Together Oklahoma (TOK) house styles, along with tools for fonts and plot export that make graphics reproducible on every machine.
 
 ## Installation
 
-You can install the released version of ojothemes from [CRAN](https://CRAN.R-project.org) with:
-
 ``` r
-install.packages("ojothemes")
+# install.packages("pak")
+pak::pak("openjusticeok/ojothemes")
 ```
+
+## Fonts
+
+Source Sans 3 ships inside the package (variable font, SIL OFL) and is registered with `systemfonts` at load time — no font installation, admin rights, or network access needed. Every theme defaults to it, so plots render **pixel-identically** on Windows, macOS, and Linux.
+
+Proprietary fonts (e.g., Adobe Myriad Pro) are supported through a `fonts/` drop-in folder in your project; see `ojo_fonts()` and the vignette.
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ```{r example}
 library(ojothemes)
-## basic example code
+library(ggplot2)
+
+p <- ggplot(mpg, aes(x = displ, y = hwy, colour = factor(cyl))) +
+  geom_point() +
+  ojo_labs(
+    analyst_name = "Brancen Gregory",
+    source = "oscn",
+    title = "Oklahoma Policy Institute",
+    subtitle = "House-style plotting with ojothemes",
+    x = "Displacement",
+    y = "Miles per gallon"
+  ) +
+  theme_opi()
+
+p
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+Styled tables work the same way with `gt`:
 
-```{r cars}
-summary(cars)
+```{r gt}
+library(gt)
+gt_opi(mpg[1:6, 1:6])
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>.
+## Exporting
 
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
+``` r
+# Pass communications specs verbatim, in any unit
+ojo_save_png(p, "plot.png", width = 1080, height = 675, unit = "px", dpi = 144)
+ojo_save_svg(p, "plot.svg", width = 178, height = 127, unit = "mm")
 ```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.

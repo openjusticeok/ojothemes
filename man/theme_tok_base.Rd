@@ -2,11 +2,11 @@
 % Please edit documentation in R/theme_tok.R
 \name{theme_tok_base}
 \alias{theme_tok_base}
-\title{A \link{ggplot2} theme formatted in the TOK style}
+\title{A \link[ggplot2:ggplot2]{ggplot2} theme formatted in the TOK style}
 \usage{
 theme_tok_base(
   base_size = 16,
-  base_family = "Roboto Condensed",
+  base_family = .ojo_font_tok,
   base_line_size = 0.5,
   base_rect_size = 0.5
 )
@@ -14,13 +14,13 @@ theme_tok_base(
 \arguments{
 \item{base_size}{The base font size to use; 16 is the default.}
 
-\item{base_family}{The font family to use; Roboto Condensed is the default.}
+\item{base_family}{The font family to use; Source Sans 3 (bundled) is the default.}
 
 \item{base_line_size}{The base line size to use; 0.5 is the default.}
 
 \item{base_rect_size}{The base rect size to use; 0.5 is the default.}
 }
 \description{
-\code{theme_tok} provides a \link{ggplot2} theme formatted according to the
+\code{theme_tok} provides a \link[ggplot2:ggplot2]{ggplot2} theme formatted according to the
 Together Oklahoma style guide for web, with sensible defaults.
 }
