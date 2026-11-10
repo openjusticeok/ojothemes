@@ -37,7 +37,13 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
-=======
 .Rproj.user
 docs
 inst/doc
+
+.direnv/
+result
+
+.env
+ssl
+ssl/
