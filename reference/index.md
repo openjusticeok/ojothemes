@@ -1,0 +1,110 @@
+# Package index
+
+## All functions
+
+- [`GeomColOJO`](https://openjusticeok.github.io/ojothemes/reference/GeomColOJO.md)
+  : OJO version of the ggproto GeomCol object
+- [`geom_bar()`](https://openjusticeok.github.io/ojothemes/reference/geom_bar.md)
+  : geom_bar in the Open Justice Oklahoma style
+- [`geom_col()`](https://openjusticeok.github.io/ojothemes/reference/geom_col.md)
+  : geom_col in the Open Justice Oklahoma style
+- [`geom_jitter()`](https://openjusticeok.github.io/ojothemes/reference/geom_jitter.md)
+  : geom_jitter in the Open Justice Oklahoma style
+- [`geom_line()`](https://openjusticeok.github.io/ojothemes/reference/geom_line.md)
+  : geom_line in the Open Justice Oklahoma style
+- [`geom_path()`](https://openjusticeok.github.io/ojothemes/reference/geom_path.md)
+  : geom_path in the Open Justice Oklahoma style
+- [`geom_point()`](https://openjusticeok.github.io/ojothemes/reference/geom_point.md)
+  : geom_point in the Open Justice Oklahoma style
+- [`geom_step()`](https://openjusticeok.github.io/ojothemes/reference/geom_step.md)
+  : geom_step in the Open Justice Oklahoma style
+- [`geom_text()`](https://openjusticeok.github.io/ojothemes/reference/geom_text.md)
+  : geom_point in the Open Justice Oklahoma style
+- [`gt_base()`](https://openjusticeok.github.io/ojothemes/reference/gt_base.md)
+  : gt_base Function
+- [`gt_ojo()`](https://openjusticeok.github.io/ojothemes/reference/gt_ojo.md)
+  : gt_ojo Function
+- [`gt_okpi()`](https://openjusticeok.github.io/ojothemes/reference/gt_okpi.md)
+  : gt_okpi Function
+- [`ojo_analyst_name_text()`](https://openjusticeok.github.io/ojothemes/reference/ojo_analyst_name_text.md)
+  : OJO analyst name text
+- [`ojo_gt_captions()`](https://openjusticeok.github.io/ojothemes/reference/ojo_gt_captions.md)
+  : OJO gt caption / source note with defaults
+- [`ojo_labs()`](https://openjusticeok.github.io/ojothemes/reference/ojo_labs.md)
+  : OJO ggplot labels with defaults
+- [`ojo_make_caption()`](https://openjusticeok.github.io/ojothemes/reference/ojo_make_caption.md)
+  : OJO caption text
+- [`ojo_set_theme()`](https://openjusticeok.github.io/ojothemes/reference/ojo_set_theme.md)
+  : Use Oklahoma Policy Institute ggplot2 themes
+- [`ojo_source_text()`](https://openjusticeok.github.io/ojothemes/reference/ojo_source_text.md)
+  : OJO source text
+- [`okpi_blue`](https://openjusticeok.github.io/ojothemes/reference/okpi_blue.md)
+  : OKPI blue
+- [`okpi_blue_light`](https://openjusticeok.github.io/ojothemes/reference/okpi_blue_light.md)
+  : OKPI blue light
+- [`okpi_blue_palette()`](https://openjusticeok.github.io/ojothemes/reference/okpi_blue_palette.md)
+  : OKPI Blue palette
+- [`okpi_red`](https://openjusticeok.github.io/ojothemes/reference/okpi_red.md)
+  : OKPI Red
+- [`okpi_red_light`](https://openjusticeok.github.io/ojothemes/reference/okpi_red_light.md)
+  : OKPI Red light
+- [`okpi_red_palette()`](https://openjusticeok.github.io/ojothemes/reference/okpi_red_palette.md)
+  : OKPI Red palette
+- [`okpi_yellow`](https://openjusticeok.github.io/ojothemes/reference/okpi_yellow.md)
+  : OKPI yellow
+- [`okpi_yellow_light`](https://openjusticeok.github.io/ojothemes/reference/okpi_yellow_light.md)
+  : OKPI yellow light
+- [`okpi_yellow_palette()`](https://openjusticeok.github.io/ojothemes/reference/okpi_yellow_palette.md)
+  : OKPI Yellow palette
+- [`palette_ojo_cyan`](https://openjusticeok.github.io/ojothemes/reference/palette_ojo_cyan.md)
+  : OJO Cyan Palette
+- [`palette_ojo_diverging`](https://openjusticeok.github.io/ojothemes/reference/palette_ojo_diverging.md)
+  : OJO Diverging Palette
+- [`palette_ojo_gray`](https://openjusticeok.github.io/ojothemes/reference/palette_ojo_gray.md)
+  : OJO Gray Palette
+- [`palette_ojo_green`](https://openjusticeok.github.io/ojothemes/reference/palette_ojo_green.md)
+  : OJO Green Palette
+- [`palette_ojo_magenta`](https://openjusticeok.github.io/ojothemes/reference/palette_ojo_magenta.md)
+  : OJO Magenta Palette
+- [`palette_ojo_main`](https://openjusticeok.github.io/ojothemes/reference/palette_ojo_main.md)
+  : OJO Main Palette
+- [`palette_ojo_politics`](https://openjusticeok.github.io/ojothemes/reference/palette_ojo_politics.md)
+  : OJO Politics Palette
+- [`palette_ojo_quintile`](https://openjusticeok.github.io/ojothemes/reference/palette_ojo_quintile.md)
+  : OJO Quintile Palette
+- [`palette_ojo_red`](https://openjusticeok.github.io/ojothemes/reference/palette_ojo_red.md)
+  : OJO Red Palette
+- [`palette_ojo_spacegray`](https://openjusticeok.github.io/ojothemes/reference/palette_ojo_spacegray.md)
+  : OJO Space Gray Palette
+- [`palette_ojo_yellow`](https://openjusticeok.github.io/ojothemes/reference/palette_ojo_yellow.md)
+  : OJO Yellow Palette
+- [`palette_okpi_main`](https://openjusticeok.github.io/ojothemes/reference/palette_okpi_main.md)
+  : OKPI main palette
+- [`palette_tok_main`](https://openjusticeok.github.io/ojothemes/reference/palette_tok_main.md)
+  : TOK main palette
+- [`scale_color_ojo()`](https://openjusticeok.github.io/ojothemes/reference/scale_color_ojo.md)
+  : OJO Color Scale
+- [`scale_color_okpi()`](https://openjusticeok.github.io/ojothemes/reference/scale_color_okpi.md)
+  : OKPI Color Scale
+- [`scale_color_tok()`](https://openjusticeok.github.io/ojothemes/reference/scale_color_tok.md)
+  : TOK Color Scale
+- [`scale_fill_ojo()`](https://openjusticeok.github.io/ojothemes/reference/scale_fill_ojo.md)
+  : OJO Fill Scale
+- [`scale_fill_okpi()`](https://openjusticeok.github.io/ojothemes/reference/scale_fill_okpi.md)
+  : OKPI Fill Scale
+- [`scale_fill_tok()`](https://openjusticeok.github.io/ojothemes/reference/scale_fill_tok.md)
+  : TOK Fill Scale
+- [`theme_ojo()`](https://openjusticeok.github.io/ojothemes/reference/theme_ojo.md)
+  : A ggplot2 theme formatted in the Oklahoma Policy Institute style
+- [`theme_ojo_base()`](https://openjusticeok.github.io/ojothemes/reference/theme_ojo_base.md)
+  : A ggplot2 theme formatted in the Open Justice Oklahoma style
+- [`theme_okpi()`](https://openjusticeok.github.io/ojothemes/reference/theme_okpi.md)
+  : A ggplot2 theme formatted in the Oklahoma Policy Institute style
+- [`theme_okpi_base()`](https://openjusticeok.github.io/ojothemes/reference/theme_okpi_base.md)
+  : A ggplot2 theme formatted in the Oklahoma Policy Institute style
+- [`theme_tok()`](https://openjusticeok.github.io/ojothemes/reference/theme_tok.md)
+  : A ggplot2 theme formatted in the Oklahoma Policy Institute style
+- [`theme_tok_base()`](https://openjusticeok.github.io/ojothemes/reference/theme_tok_base.md)
+  : A ggplot2 theme formatted in the TOK style
+- [`tok_blue`](https://openjusticeok.github.io/ojothemes/reference/tok_blue.md)
+  : TOK Blue
