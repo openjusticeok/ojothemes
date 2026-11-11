@@ -26,8 +26,10 @@
             gt
             ragg
             rlang
+            showtext
             snakecase
             svglite
+            sysfonts
             systemfonts
             tidyselect
           ];
